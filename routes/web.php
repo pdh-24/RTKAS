@@ -20,6 +20,8 @@ use App\Http\Controllers\Admin\AkunController;
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('home');   
 Route::get('/tables', [AkunController::class, 'rute'])->name('table');
+// Route::get('/coba', [HomeController::class, 'coba']);
+Route::get('/spk', [HomeController::class, 'spk']);
 
 
 
