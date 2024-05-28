@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layoutsbendahara.template')
 
 @section('content')
     <style>
@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="home-tab">
-                    <h1 class="welcome-heading">SELAMAT DATANG, <span class="text-black fw-bold">ADMIN</span></h1>
+                    <h1 class="welcome-heading">SELAMAT DATANG, <span class="text-black fw-bold">BENDAHARA</span></h1>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
                         <div class="d-sm-flex justify-content-between align-items-start">
                             <div>
                                 <h4 class="card-title">SELAMAT DATANG DI SISTEM INFORMASI KAS RT</h4>
-                                <h5 class="card-subtitle mb-4">INI ADALAH DASHBOARD ADMIN</h5>
+                                <h5 class="card-subtitle mb-4">INI ADALAH DASHBOARD BENDAHARA</h5>
                             </div>
                         </div>
                         <div class="chartjs-wrapper">
@@ -74,3 +74,4 @@
         </div>
     </div>
 @endsection
+

@@ -12781,7 +12781,7 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
 
 .navbar-dark,
 .navbar[data-bs-theme=dark] {
-  --bs-navbar-color: rgba(255, 255, 255, 0.55);
+  --bs-navbar-color: rgba(103, 188, 70, 0.55);
   --bs-navbar-hover-color: rgba(255, 255, 255, 0.75);
   --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);
   --bs-navbar-active-color: #fff;

@@ -8,11 +8,18 @@ class HomeController extends Controller
 {
     public function index()
     {
+
         $judul = 'Dashboard';
         return view('admin.dashboard', ['judul'=>$judul]);
     }
+
+    
     public function coba()
     {
         return view('coba');
+    }
+    public function spk()
+    {
+        return view('spk');
     }
 }
