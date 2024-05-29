@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color: silver;">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/dashboard') }}">
+        <a class="nav-link" href="{{ url('/dashboardrt') }}">
           <i class="menu-icon mdi material-symbols-outlined">home</i>
           <span class="menu-title">Dashboard</span>
         </a>
@@ -14,10 +14,19 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+        <a class="nav-link" data-bs-toggle="collapse" href="#emergency-fund" aria-expanded="false" aria-controls="emergency-fund">
           <i class="menu-icon mdi material-symbols-outlined">e911_emergency</i>
-          <span class="menu-title">Dana darurat</span>
+          <span class="menu-title">Dana Darurat</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="emergency-fund" data-parent="#sidebar">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Submenu 1</a>
+            </li>
+            <!-- Tambahkan submenu lainnya sesuai kebutuhan -->
+          </ul>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
@@ -27,11 +36,29 @@
       </li>
       <li class="nav-item nav-category">Kelola</li>
       <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="collapse" href="{{ url('/tables') }}" aria-expanded="false" aria-controls="charts">
+        <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="charts">
           <i class="menu-icon mdi material-symbols-outlined">contacts</i>
           <span class="menu-title">Data warga</span>
         </a>
       </li>
+      <!-- Menu Dana Darurat -->
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#emergency-fund" aria-expanded="false" aria-controls="emergency-fund">
+        <i class="menu-icon mdi material-symbols-outlined">e911_emergency</i>
+        <span class="menu-title">Dana Darurat</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="emergency-fund" data-parent="#sidebar">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Terima/Tolak</a>
+          </li>
+            <!-- Tambahkan submenu lainnya sesuai kebutuhan -->
+          </ul>
+        </div>
+      </li>
+      <!-- Akhir Menu Dana Darurat -->
       <li class="nav-item">
         <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
           <i class="menu-icon mdi material-symbols-outlined">paid</i>

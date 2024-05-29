@@ -1,4 +1,4 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color: silver;">
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
       <a class="nav-link" href="{{ url('/dashboard') }}">
@@ -27,7 +27,7 @@
     </li>
     <li class="nav-item nav-category">Kelola</li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="{{ url('/tables') }}" aria-expanded="false" aria-controls="charts">
+      <a class="nav-link" data-bs-toggle="collapse" href="{{ url('/kelola_dwarga') }}">
         <i class="menu-icon mdi material-symbols-outlined">contacts</i>
         <span class="menu-title">Data warga</span>
       </a>

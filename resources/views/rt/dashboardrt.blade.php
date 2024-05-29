@@ -45,31 +45,30 @@
         }
     </style>
 
-    <div class="content-wrapper">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="home-tab">
-                    <h1 class="welcome-heading">SELAMAT DATANG, <span class="text-black fw-bold">RT</span></h1>
-                </div>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="home-tab">
+                <h1 class="welcome-heading">SELAMAT DATANG, <span class="text-black fw-bold">RT</span></h1>
             </div>
         </div>
-        <div class="row">
-            <!-- Area Chart -->
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-sm-flex justify-content-between align-items-start">
-                            <div>
-                                <h4 class="card-title">SELAMAT DATANG DI SISTEM INFORMASI KAS RT</h4>
-                                <h5 class="card-subtitle mb-4">INI ADALAH DASHBOARD RT</h5>
-                            </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-sm-flex justify-content-between align-items-start">
+                        <div>
+                            <h4 class="card-title">SELAMAT DATANG DI SISTEM INFORMASI KAS RT</h4>
+                            <h5 class="card-subtitle mb-4">INI ADALAH DASHBOARD RT</h5>
                         </div>
-                        <div class="chartjs-wrapper">
-                            <canvas id="performanceLine"></canvas>
-                        </div>
+                    </div>
+                    <div class="chartjs-wrapper">
+                        <canvas id="performanceLine"></canvas>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 @endsection

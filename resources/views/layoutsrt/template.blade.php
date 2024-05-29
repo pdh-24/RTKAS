@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -105,18 +106,22 @@
 <body class="with-welcome-text">
     <div class="container-scroller">
         <!-- Navbar -->
-        @include('layouts.navbar')
+        @include('layoutsrt.navbar')
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- Sidebar -->
-            @include('layouts.sidebar')
+            <meta charset="UTF-8">
+    
+            @include('layoutsrt.sidebar')
+            
+        
             <!-- partial -->
             <div class="main-panel">
                 <!-- Content Wrapper -->
                 @yield('content')
                 <!-- content-wrapper ends -->
                 <!-- Footer -->
-                @include('layouts.footer')
+                @include('layoutsrt.footer')
                 <!-- partial -->
             </div>
             <!-- main-panel ends -->

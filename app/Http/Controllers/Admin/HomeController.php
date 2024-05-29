@@ -22,4 +22,11 @@ class HomeController extends Controller
     {
         return view('spk');
     }
+
+    public function kelola_dwarga(){
+        
+        $judul = 'Kelola_dwarga';
+        return view('admin.kelola_dwarga',  ['judul'=>$judul]);
+    }
+    
 }

@@ -13,4 +13,6 @@ class RTController extends Controller
         $judul = 'Dashboardrt';
         return view('rt.dashboardrt', ['judul' => $judul]);
     }
+
+    
 }

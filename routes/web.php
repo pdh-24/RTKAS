@@ -24,6 +24,7 @@ Route::get('/tables', [AkunController::class, 'rute'])->name('table');
 Route::get('/coba', [HomeController::class, 'coba']);
 Route::get('/copras', [CoprasController::class, 'index']);
 Route::get('/spk', [CoprasController::class, 'spk']);
+Route::get('/kelola_dwarga', [HomeController::class, 'kelola_dwarga'])->name('kelola_dwarga');
 
 // Route untuk dashboard RT
 Route::get('/dashboardrt', [RTController::class, 'index'])->name('dashboardrt');  

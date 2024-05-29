@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin2 </title>
+    <title>Star Warga </title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('staradmin/assets/vendors/feather/feather.css') }}">
     <link rel="stylesheet" href="{{ asset('staradmin/assets/vendors/mdi/css/materialdesignicons.min.css') }}">
@@ -110,12 +110,12 @@ table tr td img {
   <body class="with-welcome-text">
     <div class="container-scroller">
       <!-- Navbar -->
-      @include('layouts.navbar')
+      @include('layoutswarga.navbar')
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
       
       <!-- Sidebar -->
-      @include('layouts.sidebar')
+      @include('layoutswarga.sidebar')
         <!-- partial -->
         <div class="main-panel">
           <!-- <div class="content-wrapper">
@@ -123,7 +123,7 @@ table tr td img {
           @yield('content')
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
-        @include('layouts.footer')
+        @include('layoutswarga.footer')
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
