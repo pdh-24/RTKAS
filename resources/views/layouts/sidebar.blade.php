@@ -8,19 +8,19 @@
     </li>
     <li class="nav-item nav-category">Informasi</li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+      <a class="nav-link" href="{{ url('/pengumuman') }}">
         <i class="menu-icon mdi material-symbols-outlined">campaign</i>
         <span class="menu-title">Pengumuman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+      <a class="nav-link" href="{{ url('/dana_darurat') }}">
         <i class="menu-icon mdi material-symbols-outlined">e911_emergency</i>
         <span class="menu-title">Dana darurat</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+      <a class="nav-link" href="{{ url('/iuran') }}">
         <i class="menu-icon mdi material-symbols-outlined">account_balance</i>
         <span class="menu-title">Iuran</span>
       </a>
