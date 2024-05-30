@@ -2,13 +2,10 @@
 @extends('layouts.template')
 
 @section('content')
-
-<?php
-    // dd($normalisasi);
-?>
+    <!-- Source of table: https://bbbootstrap.com/snippets/team-points-table-61285186# -->
     <div class="content-wrapper">
         <div class="row">
-            <section class="content-info">
+            <!-- <section class="content-info"> -->
                 <div class="container paddings-mini">
                     <div class="col-lg-12">
                         <h4>Normalization Matrix</h4>
@@ -156,7 +153,7 @@
                         </table>
                     </div>
                 </div>
-            </section>
+            <!-- </section> -->
         </div>
     </div>
 @endsection
