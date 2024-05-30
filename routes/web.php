@@ -48,8 +48,14 @@ Route::get('/verifikasi_kas', [RTController::class, 'verifikasi_kas'])->name('ve
 Route::get('/kelola_pengumuman', [RTController::class, 'kelola_pengumuman'])->name('kelola_pengumuman');
 
 
+//bendahara
+Route::get('/pengumuman', [BendaharaController::class, 'pengumuman'])->name('pengumuman');  
+
+
 // Route untuk bendahara 
 Route::get('/dashboardbendahara', [BendaharaController::class, 'index'])->name('dashboardbendahara'); 
+Route::get('/dana_darurat', [BendaharaController::class, 'dana_darurat'])->name('dana_darurat');
+Route::get('/iuran', [BendaharaController::class, 'iuran'])->name('iuran');
 
 // Route untuk warga
 Route::get('/dashboardwarga', [WargaController::class, 'index'])->name('dashboardwarga');
