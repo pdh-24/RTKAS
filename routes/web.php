@@ -34,6 +34,7 @@ Route::get('/datakas_kelola', [HomeController::class, 'datakas_kelola'])->name('
 Route::get('/kelola_pengumuman', [HomeController::class, 'kelola_pengumuman'])->name('kelola_pengumuman');
 
 
+
 // Route untuk dashboard RT
 Route::get('/dashboardrt', [RTController::class, 'index'])->name('dashboardrt');
 //informasi rt
