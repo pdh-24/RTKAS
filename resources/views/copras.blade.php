@@ -23,7 +23,7 @@
                                     <tr>
                                         <td>A{{ $x+1 }}</td>
                                         @for ($y = 0; $y < count($normalisasi[$x]); $y++)
-                                            <td>{{ number_format($normalisasi[$x][$y], 2) }}</td>
+                                            <td>{{ number_format($normalisasi[$x][$y], 3) }}</td>
                                         @endfor
                                     </tr>
                                 @endfor
@@ -46,7 +46,7 @@
                                     <tr>
                                         <td>A{{ $x+1 }}</td>
                                         @for ($y = 0; $y < count($normalBobot[$x]); $y++)
-                                            <td>{{ number_format($normalBobot[$x][$y], 2) }}</td>
+                                            <td>{{ number_format($normalBobot[$x][$y], 3) }}</td>
                                         @endfor
                                     </tr>
                                 @endfor
@@ -67,8 +67,8 @@
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
                                         <td>{{ $alt }}</td>
-                                        <td>{{ number_format($benefit[$index], 2) }}</td>
-                                        <td>{{ number_format($cost[$index], 2) }}</td>
+                                        <td>{{ number_format($benefit[$index], 3) }}</td>
+                                        <td>{{ number_format($cost[$index], 3) }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

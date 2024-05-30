@@ -12,34 +12,44 @@ class CoprasController extends Controller
     public function index()
     {
         $kriteria       = [
-            "C1",
-            "C2",
-            "C3",
-            "C4",
-            "C5",
+            "Transparansi dana",
+            "Efisien",
+            "Partisipasi warga",
+            "Tingkat darurat",
+            "Jumlah biaya",
         ];
         $pembobotan     = [0.3, 0.2, 0.2, 0.3, 0.15];
         $tipe           = ["b", "b", "b", "b", "c"];
         $alternatif     = [  
-            "Microsoft Azure",
-            "Google Cloud Platform",
-            "Amazon Web Service",
-            "Alibaba Cloud",
-            "Digital Ocean"
+            "Dana gotong royong bulanan",
+            "Dana Darurat untuk bantuan krisis",
+            "Dana untuk acara HUT RI",
+            "Dana untuk program kebersihan bulanan",
+            "Dana untuk pengadaan peralatan untuk RT",
+            "Biaya operasional rapat RT",
+            "Biaya operasional PKK",
+            "Dana untuk pelatihan workshop RT",
+            "Dana untuk kegiatan social",
+            "Dana untuk pembangunan infrastruktur RT"
         ];
         $penilaian      = [
-            [6, 5, 8, 7, 10],
-            [7, 7, 9, 8, 9],
-            [9, 8, 9, 9, 9],
-            [8, 7, 8, 7, 9],
-            [10, 9, 5, 5, 8]
+            [0.3, 0.3, 0.3, 1, 1],
+            [0.2, 0.2, 0.2, 0.3, 0.3],
+            [1, 1, 0.5, 0.2, 0.2],
+            [0.3, 0.4, 0.4, 0.4, 0.4],
+            [0.2, 0.2, 1, 0.3, 0.3],
+            [0.4, 0.2, 0.2, 0.3, 0.4],
+            [0.4, 1, 0.4, 0.4, 1],
+            [1, 0.3, 0.5, 1, 0.2],
+            [0.3, 0.3, 0.5, 0.2, 0.4],
+            [0.5, 0.2, 0.3, 0.6, 1],
         ];
         // dd($penilaian);
         
-        $normalisasi    = array_fill(0, 5, array_fill(0, 5, 0));
-        $normalBobot    = array_fill(0, 5, array_fill(0, 5, 0));
-        $benefit        = array_fill(0, 5, 0);
-        $cost           = array_fill(0, 5, 0);
+        $normalisasi    = array_fill(0, count($alternatif), array_fill(0, count($kriteria), 0));
+        $normalBobot    = array_fill(0, count($alternatif), array_fill(0, count($kriteria), 0));
+        $benefit        = array_fill(0, count($alternatif), 0);
+        $cost           = array_fill(0, count($alternatif), 0);
         $botRelatif1    = [];
         $botRelatif2    = [];
         $nilaiPrioritas = [];
