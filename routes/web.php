@@ -40,6 +40,12 @@ Route::get('/dashboardrt', [RTController::class, 'index'])->name('dashboardrt');
 Route::get('/pengumuman', [RTController::class, 'pengumuman'])->name('pengumuman');  
 Route::get('/dana_darurat', [RTController::class, 'dana_darurat'])->name('dana_darurat');
 Route::get('/iuran', [RTController::class, 'iuran'])->name('iuran');
+//kelola rt
+Route::get('/data_warga', [RTController::class, 'data_warga'])->name('data_warga');
+Route::get('/verifikasi', [RTController::class, 'verifikasi'])->name('verifikasi');
+Route::get('/verifikasi_kas', [RTController::class, 'verifikasi_kas'])->name('verifikasi_kas');
+Route::get('/kelola_pengumuman', [RTController::class, 'kelola_pengumuman'])->name('kelola_pengumuman');
+
 
 // Route untuk bendahara 
 Route::get('/dashboardbendahara', [BendaharaController::class, 'index'])->name('dashboardbendahara'); 
