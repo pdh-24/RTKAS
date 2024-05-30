@@ -41,7 +41,6 @@ Route::get('/dashboardrt', [RTController::class, 'index'])->name('dashboardrt');
 //informasi rt
 Route::get('/pengumuman_rt', [RTController::class, 'pengumuman_rt'])->name('pengumuman_rt');  
 Route::get('/dana_darurat_rt', [RTController::class, 'dana_darurat_rt'])->name('dana_darurat_rt');
-
 //kelola rt
 Route::get('/data_warga', [RTController::class, 'data_warga'])->name('data_warga');
 Route::get('/verifikasi', [RTController::class, 'verifikasi'])->name('verifikasi');
@@ -62,3 +61,6 @@ Route::get('/laporan_kas_bendahara', [BendaharaController::class, 'laporan_kas_b
 
 // Route untuk warga
 Route::get('/dashboardwarga', [WargaController::class, 'index'])->name('dashboardwarga');
+Route::get('/pengumuman_warga', [WargaController::class, 'pengumuman_warga'])->name('pengumuman_warga');
+Route::get('/request_dana_darurat_warga', [WargaController::class, 'request_dana_darurat_warga'])->name('request_dana_darurat_warga');
+Route::get('/bayar_iuran_warga', [WargaController::class, 'bayar_iuran_warga'])->name('bayar_iuran_warga');

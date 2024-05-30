@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card">
-    <div class="card-header" style="background-color: #555;">
+    <div class="card-header" style="background-color: #8cbb91;">
         <h1 style="font-size:30px;font-weight:bold;text-align:center; color:white;">Verifikasi Dana Darurat</h1>
         <div class="card-tools"></div>
     </div>

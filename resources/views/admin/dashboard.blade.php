@@ -58,7 +58,7 @@
             <!-- Area Chart -->
             <div class="col-lg-8">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="background-color: #b9dfbd;">
                         <div class="d-sm-flex justify-content-between align-items-start">
                             <div>
                                 <h4 class="card-title">SELAMAT DATANG DI SISTEM INFORMASI KAS RT</h4>

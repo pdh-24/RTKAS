@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color: silver;">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/dashboard') }}">
+        <a class="nav-link" href="{{ url('/dashboardbendahara') }}">
           <i class="menu-icon mdi material-symbols-outlined">home</i>
           <span class="menu-title">Dashboard</span>
         </a>
