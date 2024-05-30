@@ -16,7 +16,7 @@ class BendaharaController extends Controller
         return view('bendahara.dasboardbendahara', ['judul' => $judul]);
     }
 
-    public function Pengumuman()
+    public function Pengumuman_bendahara()
     {
         $judul = 'pengumuman';
         $pengumuman = [
@@ -37,18 +37,18 @@ class BendaharaController extends Controller
             ],
         ];
 
-        return view('bendahara.pengumuman', ['judul' => $judul, 'pengumuman' => $pengumuman]);
+        return view('bendahara.pengumuman_bendahara', ['judul' => $judul, 'pengumuman' => $pengumuman]);
     }
 
-    public function dana_darurat()
+    public function dana_darurat_bendahara()
     {
         $judul = 'Dana Darurat';
         // Ambil semua data dana darurat
 
-        return view('bendahara.dana_darurat', ['judul' => $judul ]);
+        return view('bendahara.dana_darurat_bendahara', ['judul' => $judul ]);
     }
 
-    public function iuran()
+    public function iuran_bendahara()
     {
         $judul = 'Informasi Iuran';
         
@@ -61,7 +61,7 @@ class BendaharaController extends Controller
         // Mendapatkan informasi tentang iuran yang akan dilaksanakan minggu ini (Contoh: Ambil dari database)
         $iuran_minggu_ini = "Informasi tentang iuran yang akan dilaksanakan minggu ini.";
 
-        return view('bendahara.iuran', compact('judul', 'belum_bayar', 'sudah_bayar', 'iuran_minggu_ini'));
+        return view('bendahara.iuran_bendahara', compact('judul', 'belum_bayar', 'sudah_bayar', 'iuran_minggu_ini'));
     }
 
 }

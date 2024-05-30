@@ -38,24 +38,24 @@ Route::get('/kelola_pengumuman', [HomeController::class, 'kelola_pengumuman'])->
 // Route untuk dashboard RT
 Route::get('/dashboardrt', [RTController::class, 'index'])->name('dashboardrt');
 //informasi rt
-Route::get('/pengumuman', [RTController::class, 'pengumuman'])->name('pengumuman');  
-Route::get('/dana_darurat', [RTController::class, 'dana_darurat'])->name('dana_darurat');
-Route::get('/iuran', [RTController::class, 'iuran'])->name('iuran');
+Route::get('/pengumuman_rt', [RTController::class, 'pengumuman_rt'])->name('pengumuman_rt');  
+Route::get('/dana_darurat_rt', [RTController::class, 'dana_darurat_rt'])->name('dana_darurat_rt');
+
 //kelola rt
 Route::get('/data_warga', [RTController::class, 'data_warga'])->name('data_warga');
 Route::get('/verifikasi', [RTController::class, 'verifikasi'])->name('verifikasi');
 Route::get('/verifikasi_kas', [RTController::class, 'verifikasi_kas'])->name('verifikasi_kas');
-Route::get('/kelola_pengumuman', [RTController::class, 'kelola_pengumuman'])->name('kelola_pengumuman');
+Route::get('/kelola_pengumuman_rt', [RTController::class, 'kelola_pengumuman_rt'])->name('kelola_pengumuman_rt');
 
 
 //bendahara
-Route::get('/pengumuman', [BendaharaController::class, 'pengumuman'])->name('pengumuman');  
+Route::get('/pengumuman_bendahara', [BendaharaController::class, 'pengumuman_bendahara'])->name('pengumuman_bendahara');  
 
 
 // Route untuk bendahara 
 Route::get('/dashboardbendahara', [BendaharaController::class, 'index'])->name('dashboardbendahara'); 
-Route::get('/dana_darurat', [BendaharaController::class, 'dana_darurat'])->name('dana_darurat');
-Route::get('/iuran', [BendaharaController::class, 'iuran'])->name('iuran');
+Route::get('/dana_darurat_bendahara', [BendaharaController::class, 'dana_darurat_bendahara'])->name('dana_darurat_bendahara');
+Route::get('/iuran_bendahara', [BendaharaController::class, 'iuran_bendahara'])->name('iuran_bendahara');
 
 // Route untuk warga
 Route::get('/dashboardwarga', [WargaController::class, 'index'])->name('dashboardwarga');

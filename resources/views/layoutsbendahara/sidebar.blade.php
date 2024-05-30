@@ -8,19 +8,19 @@
       </li>
       <li class="nav-item nav-category">Informasi</li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/pengumuman') }}">
+        <a class="nav-link" href="{{ url('/pengumuman_bendahara') }}">
           <i class="menu-icon mdi material-symbols-outlined">campaign</i>
           <span class="menu-title">Pengumuman</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/dana_darurat') }}">
+        <a class="nav-link" href="{{ url('/dana_darurat_bendahara') }}">
           <i class="menu-icon mdi material-symbols-outlined">e911_emergency</i>
           <span class="menu-title">Dana darurat</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/iuran') }}">
+        <a class="nav-link" href="{{ url('/iuran_bendahara') }}">
           <i class="menu-icon mdi material-symbols-outlined">account_balance</i>
           <span class="menu-title">Iuran</span>
         </a>
