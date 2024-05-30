@@ -18,6 +18,7 @@ use App\Http\Controllers\WARGA\WargaController;
 |
 */
 
+                              //ADMIN
 // Route untuk dashboard admin
 Route::get('/dashboard', [HomeController::class, 'index'])->name('home');   
 Route::get('/tables', [AkunController::class, 'rute'])->name('table');
@@ -50,12 +51,14 @@ Route::get('/kelola_pengumuman_rt', [RTController::class, 'kelola_pengumuman_rt'
 
 //bendahara
 Route::get('/pengumuman_bendahara', [BendaharaController::class, 'pengumuman_bendahara'])->name('pengumuman_bendahara');  
-
-
-// Route untuk bendahara 
 Route::get('/dashboardbendahara', [BendaharaController::class, 'index'])->name('dashboardbendahara'); 
 Route::get('/dana_darurat_bendahara', [BendaharaController::class, 'dana_darurat_bendahara'])->name('dana_darurat_bendahara');
 Route::get('/iuran_bendahara', [BendaharaController::class, 'iuran_bendahara'])->name('iuran_bendahara');
+Route::get('/data_iuran_bendahara', [BendaharaController::class, 'data_iuran_bendahara'])->name('data_iuran_bendahara');
+Route::get('/verifikasi_dana_darurat_bendahara', [BendaharaController::class, 'verifikasi_dana_darurat_bendahara'])->name('verifikasi_dana_darurat_bendahara');
+Route::get('/laporan_kas_bendahara', [BendaharaController::class, 'laporan_kas_bendahara'])->name('laporan_kas_bendahara');
+
+
 
 // Route untuk warga
 Route::get('/dashboardwarga', [WargaController::class, 'index'])->name('dashboardwarga');

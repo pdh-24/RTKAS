@@ -64,4 +64,87 @@ class BendaharaController extends Controller
         return view('bendahara.iuran_bendahara', compact('judul', 'belum_bayar', 'sudah_bayar', 'iuran_minggu_ini'));
     }
 
+    public function data_iuran_bendahara(){
+        
+        $judul = 'Kelola_dwarga';
+        return view('bendahara.data_iuran_bendahara',  ['judul'=>$judul]);
+    }
+
+    public function verifikasi_dana_darurat_bendahara()
+    {
+        $judul = 'Verifikasi Dana Darurat';
+        // Contoh data dummy untuk dana darurat
+        $dana_darurat = [
+            [
+                'judul' => 'Beli Tempat Sampah',
+                'status' => 'Disetujui',
+                'jumlah' => 500000,
+            ],
+            [
+                'judul' => 'Perbaikan Jalan',
+                'status' => 'Menunggu Persetujuan',
+                'jumlah' => 1500000,
+            ],
+            [
+                'judul' => 'Pengadaan Lampu Jalan',
+                'status' => 'Disetujui',
+                'jumlah' => 750000,
+            ],
+        ];
+
+        // Contoh data dummy untuk dana darurat yang ditolak
+        $dana_darurat_ditolak = [
+            [
+                'judul' => 'Pembangunan Pos Kamling',
+                'alasan' => 'Anggaran terlalu besar',
+                'jumlah' => 2000000,
+            ],
+            [
+                'judul' => 'Pengadaan Tanaman Hias',
+                'alasan' => 'Tidak mendesak',
+                'jumlah' => 300000,
+            ],
+        ];
+
+        return view('bendahara.verifikasi_dana_darurat_bendahara', [
+            'judul' => $judul,
+            'dana_darurat' => $dana_darurat,
+            'dana_darurat_ditolak' => $dana_darurat_ditolak
+        ]);
+    }
+
+    public function laporan_kas_bendahara()
+    {
+        $judul = 'Kelola Laporan Kas Warga';
+        
+        // Contoh data dummy untuk kas masuk dan keluar
+        $kas_masuk = [
+            ['nama' => 'Warga 1', 'jumlah' => 100000, 'tanggal' => '2024-05-29'],
+            ['nama' => 'Warga 2', 'jumlah' => 150000, 'tanggal' => '2024-05-30'],
+        ];
+
+        $kas_keluar = [
+            ['keterangan' => 'Beli alat kebersihan', 'jumlah' => 50000, 'tanggal' => '2024-05-28'],
+            ['keterangan' => 'Perbaikan jalan', 'jumlah' => 200000, 'tanggal' => '2024-05-29'],
+        ];
+
+        // Menghitung total kas masuk dan keluar
+        $total_kas_masuk = array_sum(array_column($kas_masuk, 'jumlah'));
+        $total_kas_keluar = array_sum(array_column($kas_keluar, 'jumlah'));
+
+        return view('bendahara.laporan_kas_bendahara', [
+            'judul' => $judul,
+            'kas_masuk' => $kas_masuk,
+            'kas_keluar' => $kas_keluar,
+            'total_kas_masuk' => $total_kas_masuk,
+            'total_kas_keluar' => $total_kas_keluar
+        ]);
+    }
+
+    public function upload_kas(Request $request)
+    {
+        // Fungsi untuk mengunggah data pembayaran kas warga
+        // Belum difungsikan
+    }
+
 }
