@@ -8,26 +8,26 @@
     </li>
     <li class="nav-item nav-category">Informasi</li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+      <a class="nav-link" href="{{ url('/pengumuman') }}">
         <i class="menu-icon mdi material-symbols-outlined">campaign</i>
         <span class="menu-title">Pengumuman</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+      <a class="nav-link" href="{{ url('/dana_darurat') }}">
         <i class="menu-icon mdi material-symbols-outlined">e911_emergency</i>
         <span class="menu-title">Dana darurat</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+      <a class="nav-link" href="{{ url('/iuran') }}">
         <i class="menu-icon mdi material-symbols-outlined">account_balance</i>
         <span class="menu-title">Iuran</span>
       </a>
     </li>
     <li class="nav-item nav-category">Kelola</li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="{{ url('/kelola_dwarga') }}">
+      <a class="nav-link" href="{{ url('/kelola_dwarga') }}">
         <i class="menu-icon mdi material-symbols-outlined">contacts</i>
         <span class="menu-title">Data warga</span>
       </a>
@@ -40,7 +40,7 @@
       </a>
       <div class="collapse" id="charts">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="{{ asset('staradmin/pages/charts/chartjs.html') }}">Verifikasi iuran</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{ asset('/datakas_kelola') }}">Verifikasi iuran</a></li>
         </ul>
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="{{ asset('staradmin/pages/charts/chartjs.html') }}">Laporan kas</a></li>
@@ -48,7 +48,7 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="collapse" href="" aria-expanded="false" aria-controls="tables">
+      <a class="nav-link"  href="{{ url('/kelola_pengumuman') }}">
         <i class="menu-icon mdi material-symbols-outlined">newsstand</i>
         <span class="menu-title">Pengumuman</span>
       </a>
