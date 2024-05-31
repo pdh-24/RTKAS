@@ -8,7 +8,30 @@
             <!-- <section class="content-info"> -->
                 <div class="container paddings-mini">
                     <div class="col-lg-12">
-                        <h4>Normalization Matrix</h4>
+                    <h4>Matriks Penilaian</h4>
+                        <table class="table-striped table-responsive table-hover">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    @for ($x = 0; $x < count($kriteria); $x++)
+                                        <th>C{{ $x+1 }}</th>
+                                    @endfor
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for ($x = 0; $x < count($penilaian); $x++)
+                                    <tr>
+                                        <td>A{{ $x+1 }}</td>
+                                        @for ($y = 0; $y < count($penilaian[$x]); $y++)
+                                            <td>{{ number_format($penilaian[$x][$y], 1, ',') }}</td>
+                                        @endfor
+                                    </tr>
+                                @endfor
+                            </tbody>
+                        </table>
+
+                    <br><br> 
+                        <h4>Matriks Normalisasi</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -23,7 +46,7 @@
                                     <tr>
                                         <td>A{{ $x+1 }}</td>
                                         @for ($y = 0; $y < count($normalisasi[$x]); $y++)
-                                            <td>{{ number_format($normalisasi[$x][$y], 3) }}</td>
+                                            <td>{{ number_format($normalisasi[$x][$y], 3, ',') }}</td>
                                         @endfor
                                     </tr>
                                 @endfor
@@ -31,7 +54,7 @@
                         </table>
 
                         <br><br>
-                            <h4>Weighted Normalization Matrix</h4>
+                            <h4>Maktriks Normalisasi Terbobot</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -46,7 +69,7 @@
                                     <tr>
                                         <td>A{{ $x+1 }}</td>
                                         @for ($y = 0; $y < count($normalBobot[$x]); $y++)
-                                            <td>{{ number_format($normalBobot[$x][$y], 3) }}</td>
+                                            <td>{{ number_format($normalBobot[$x][$y], 3, ',') }}</td>
                                         @endfor
                                     </tr>
                                 @endfor
@@ -67,15 +90,15 @@
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
                                         <td>{{ $alt }}</td>
-                                        <td>{{ number_format($benefit[$index], 3) }}</td>
-                                        <td>{{ number_format($cost[$index], 3) }}</td>
+                                        <td>{{ number_format($benefit[$index], 3, ',') }}</td>
+                                        <td>{{ number_format($cost[$index], 3, ',') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
 
                         <br><br>
-                            <h4>Relative Weight</h4>
+                            <h4>Bobot Relatif</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -88,15 +111,15 @@
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
                                         <td>{{ $alt }}</td>
-                                        <td style="text-align: center;">{{ number_format($botRelatif1[$index], 2) }}</td>
-                                        <td style="text-align: center;">{{ number_format($botRelatif2[$index], 2) }}</td>
+                                        <td style="text-align: center;">{{ number_format($botRelatif1[$index], 2, ',') }}</td>
+                                        <td style="text-align: center;">{{ number_format($botRelatif2[$index], 2, ',') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
 
                         <br><br>
-                            <h4>Priority Values</h4>
+                            <h4>Nilai Prioritas</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -108,14 +131,14 @@
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
                                         <td>{{ $alt }}</td>
-                                        <td>{{ number_format($nilaiPrioritas[$index], 2) }}</td>
+                                        <td>{{ number_format($nilaiPrioritas[$index], 2, ',') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
 
                         <br><br>
-                            <h4>Performance Index</h4>
+                            <h4>Indeks Performa</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -127,18 +150,18 @@
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
                                         <td>{{ $alt }}</td>
-                                        <td>{{ number_format($indexPerforma[$index], 2) }}%</td>
+                                        <td>{{ number_format($indexPerforma[$index], 2, ',') }}%</td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
 
                         <br><br>
-                            <h4>Ranking</h4>
+                            <h4>Pemeringkatan</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th>Rank</th>
+                                    <th>Peringkat</th>
                                     <th>Alternatif</th>
                                 </tr>
                             </thead>

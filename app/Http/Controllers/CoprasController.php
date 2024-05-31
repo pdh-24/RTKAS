@@ -197,7 +197,8 @@ class CoprasController extends Controller
         // dd($peringkat);
         // dd($normalisasi);
         return view('layoutscopras.copras', compact(
-            'kriteria', 'normalisasi', 'normalBobot', 'benefit', 'cost', 'botRelatif1', 'botRelatif2', 'nilaiPrioritas', 'indexPerforma', 'peringkat', 'alternatif'
+            'penilaian', 'kriteria', 'normalisasi', 'normalBobot', 'benefit', 'cost', 'botRelatif1',
+            'botRelatif2', 'nilaiPrioritas', 'indexPerforma', 'peringkat', 'alternatif'
         ));
     }
 }
