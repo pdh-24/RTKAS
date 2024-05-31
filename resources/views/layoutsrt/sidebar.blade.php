@@ -8,13 +8,13 @@
       </li>
       <li class="nav-item nav-category">Informasi</li>
       <li class="nav-item">
-          <a class="nav-link" href="{{ url('/pengumuman') }}">
+          <a class="nav-link" href="{{ url('/pengumuman_rt') }}">
               <i class="menu-icon mdi material-symbols-outlined">campaign</i>
               <span class="menu-title">Pengumuman</span>
           </a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="{{ url('/dana_darurat') }}">
+          <a class="nav-link" href="{{ url('/dana_darurat_rt') }}">
               <i class="menu-icon mdi material-symbols-outlined">e911_emergency</i>
               <span class="menu-title">Dana Darurat</span>
           </a>
@@ -60,7 +60,7 @@
           </div>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="{{ url('/kelola_pengumuman') }}">
+          <a class="nav-link" href="{{ url('/kelola_pengumuman_rt') }}">
               <i class="menu-icon mdi material-symbols-outlined">newsstand</i>
               <span class="menu-title">Pengumuman</span>
           </a>

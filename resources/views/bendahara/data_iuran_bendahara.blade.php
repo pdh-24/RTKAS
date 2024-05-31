@@ -1,4 +1,4 @@
-@extends('layoutsrt.template')
+@extends('layoutsbendahara.template')
 
 @section('content')
 <div class="card">
@@ -83,4 +83,3 @@
     </div>
 </div>
 @endsection
-

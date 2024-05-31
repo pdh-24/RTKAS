@@ -14,7 +14,7 @@ class RTController extends Controller
         return view('rt.dashboardrt', ['judul' => $judul]);
     }
 
-    public function Pengumuman()
+    public function Pengumuman_rt()
     {
         $judul = 'pengumuman';
         $pengumuman = [
@@ -35,33 +35,18 @@ class RTController extends Controller
             ],
         ];
 
-        return view('rt.pengumuman', ['judul' => $judul, 'pengumuman' => $pengumuman]);
+        return view('rt.pengumuman_rt', ['judul' => $judul, 'pengumuman' => $pengumuman]);
     }
 
-    public function dana_darurat()
+    public function dana_darurat_rt()
     {
         $judul = 'Dana Darurat';
         // Ambil semua data dana darurat
 
-        return view('rt.dana_darurat', ['judul' => $judul ]);
+        return view('rt.dana_darurat_rt', ['judul' => $judul ]);
     }
 
-    public function iuran()
-    {
-        $judul = 'Informasi Iuran';
-        
-        // Mendapatkan data jumlah warga yang belum bayar iuran (Contoh: Ambil dari database)
-        $belum_bayar = 100;
-
-        // Mendapatkan data jumlah warga yang sudah bayar iuran (Contoh: Ambil dari database)
-        $sudah_bayar = 200;
-
-        // Mendapatkan informasi tentang iuran yang akan dilaksanakan minggu ini (Contoh: Ambil dari database)
-        $iuran_minggu_ini = "Informasi tentang iuran yang akan dilaksanakan minggu ini.";
-
-        return view('RT.iuran', compact('judul', 'belum_bayar', 'sudah_bayar', 'iuran_minggu_ini'));
-    }
-
+   
     public function data_warga(){
         
         $judul = 'Data Warga';
@@ -100,9 +85,9 @@ class RTController extends Controller
         return view('rt.verifikasi_kas', ['judul' => $judul, 'dataKas' => $dataKas]);
     }
 
-    public function kelola_Pengumuman()
+    public function kelola_Pengumuman_rt()
     {
-        $judul = 'kelola_pengumuman';
+        $judul = 'kelola_pengumuman_rt';
         $pengumuman = [
             [
                 'judul' => 'Informasi Kas Warga',
@@ -121,7 +106,7 @@ class RTController extends Controller
             ],
         ];
 
-        return view('rt.kelola_pengumuman', ['judul' => $judul, 'pengumuman' => $pengumuman]);
+        return view('rt.kelola_pengumuman_rt', ['judul' => $judul, 'pengumuman' => $pengumuman]);
     }
 
 

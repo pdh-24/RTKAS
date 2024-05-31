@@ -1,10 +1,10 @@
 <!-- resources/views/admin/informasi_admin.blade.php -->
-@extends('layoutsrt.template')
+@extends('layoutsbendahara.template')
 
 @section('content')
 <div class="card">
-    <div class="card-header">
-        <h1 style="font-size:30px;font-weight:bold;text-align:center;">Informasi Pengumuman RT</h1>
+    <div class="card-header" style="background-color: #8cbb91;">
+        <h1 style="font-size:30px;font-weight:bold;text-align:center;">Informasi Pengumuman Bendahara</h1>
         <div class="card-tools"></div>
     </div>
     <div class="card-body">

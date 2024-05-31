@@ -1,9 +1,9 @@
-@extends('layouts.template')
+@extends('layoutsrt.template')
 
 @section('content')
 <div class="card">
     <div class="card-header" style="background-color: #8cbb91;">
-        <h1 style="font-size:30px;font-weight:bold;text-align:center;">Informasi Dana Darurat</h1>
+        <h1 style="font-size:30px;font-weight:bold;text-align:center;">Informasi Dana Darurat RT</h1>
         <div class="card-tools"></div>
     </div>
     <div class="card-body" style="background-color: #8cbb91;">
@@ -25,3 +25,4 @@
     </div>
 </div>
 @endsection
+

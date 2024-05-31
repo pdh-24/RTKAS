@@ -110,12 +110,12 @@ table tr td img {
   <body class="with-welcome-text">
     <div class="container-scroller">
       <!-- Navbar -->
-      @include('layouts.navbar')
+      @include('layoutsbendahara.navbar')
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
       
       <!-- Sidebar -->
-      @include('layouts.sidebar')
+      @include('layoutsbendahara.sidebar')
         <!-- partial -->
         <div class="main-panel">
           <!-- <div class="content-wrapper">
@@ -123,7 +123,7 @@ table tr td img {
           @yield('content')
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
-        @include('layouts.footer')
+        @include('layoutsbendahara.footer')
           <!-- partial -->
         </div>
         <!-- main-panel ends -->

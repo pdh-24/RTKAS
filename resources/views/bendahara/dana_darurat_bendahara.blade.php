@@ -1,12 +1,12 @@
-@extends('layoutsrt.template')
+@extends('layoutsbendahara.template')
 
 @section('content')
 <div class="card">
-    <div class="card-header">
-        <h1 style="font-size:30px;font-weight:bold;text-align:center;">Informasi Dana Darurat RT</h1>
+    <div class="card-header" style="background-color: #8cbb91;">
+        <h1 style="font-size:30px;font-weight:bold;text-align:center;">Informasi Dana Darurat Bendahara</h1>
         <div class="card-tools"></div>
     </div>
-    <div class="card-body" style="background-color: #cfcbcb;">
+    <div class="card-body" style="background-color: #8cbb91;">
         <section>
             <h3 style="color: white;">Detail Informasi Dana Darurat</h3>
             <table class="table">
