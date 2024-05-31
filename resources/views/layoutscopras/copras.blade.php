@@ -1,5 +1,5 @@
 
-@extends('layouts.template')
+@extends('layoutscopras.template')
 
 @section('content')
     <!-- Source of table: https://bbbootstrap.com/snippets/team-points-table-61285186# -->
@@ -80,16 +80,16 @@
                             <thead>
                                 <tr>
                                     <th>Alternatif</th>
-                                    <th>Weight 1</th>
-                                    <th>Weight 2</th>
+                                    <th style="text-align: center;">1/S<sub>-i</sub></th>
+                                    <th style="text-align: center;">S<sub>-</sub>&times;<small>&sum;</small>(1/S<sub>-i</sub>)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
                                         <td>{{ $alt }}</td>
-                                        <td>{{ number_format($botRelatif1[$index], 2) }}</td>
-                                        <td>{{ number_format($botRelatif2[$index], 2) }}</td>
+                                        <td style="text-align: center;">{{ number_format($botRelatif1[$index], 2) }}</td>
+                                        <td style="text-align: center;">{{ number_format($botRelatif2[$index], 2) }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -146,7 +146,7 @@
                                 @foreach ($peringkat as $rank => $index)
                                     <tr>
                                         <td>{{ $rank + 1 }}</td>
-                                        <td>{{ $alternatif[$index] }}</td>
+                                        <td>{{ $alternatif[$index] }} – <b>A{{ $index+1 }}</b></td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -125,7 +125,7 @@ class CoprasController extends Controller
             // dd($botRelatif2);
             $totalCost = array_sum($cost);
             for ($x = 0; $x < count($alternatif); $x++) { // x menyatakan nilai prioritas untuk alternatif ke-X
-                $nilaiPrioritas[$x] = $benefit[$x] + $totalCost * $botRelatif2[$x];
+                $nilaiPrioritas[$x] = $benefit[$x] + $totalCost / $botRelatif2[$x];
             }
         }
         
@@ -135,6 +135,7 @@ class CoprasController extends Controller
         function hitungIndexPerforma(&$nilaiPrioritas, &$indexPerforma) {
 
             $maxPrioritas = max($nilaiPrioritas);
+            // dd($maxPrioritas);
             for ($x = 0; $x < count($nilaiPrioritas); $x++) {
                 $indexPerforma[$x] = $nilaiPrioritas[$x] / $maxPrioritas * 100;
             }
@@ -195,7 +196,7 @@ class CoprasController extends Controller
         // dd($nilaiPrioritas);
         // dd($peringkat);
         // dd($normalisasi);
-        return view('copras', compact(
+        return view('layoutscopras.copras', compact(
             'kriteria', 'normalisasi', 'normalBobot', 'benefit', 'cost', 'botRelatif1', 'botRelatif2', 'nilaiPrioritas', 'indexPerforma', 'peringkat', 'alternatif'
         ));
     }
