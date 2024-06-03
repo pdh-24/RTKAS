@@ -2,48 +2,115 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class CoprasController extends Controller
 {
     public function spk(){
-        return view('copras');
+        // $this->index();
+        return redirect('/copras');
     }
     public function index()
-    {
-        $kriteria       = [
-            "Transparansi dana",
-            "Efisien",
-            "Partisipasi warga",
-            "Tingkat darurat",
-            "Jumlah biaya",
-        ];
-        $pembobotan     = [0.3, 0.2, 0.2, 0.3, 0.15];
-        $tipe           = ["b", "b", "b", "b", "c"];
-        $alternatif     = [  
-            "Dana gotong royong bulanan",
-            "Dana Darurat untuk bantuan krisis",
-            "Dana untuk acara HUT RI",
-            "Dana untuk program kebersihan bulanan",
-            "Dana untuk pengadaan peralatan untuk RT",
-            "Biaya operasional rapat RT",
-            "Biaya operasional PKK",
-            "Dana untuk pelatihan workshop RT",
-            "Dana untuk kegiatan social",
-            "Dana untuk pembangunan infrastruktur RT"
-        ];
-        $penilaian      = [
-            [0.3, 0.3, 0.3, 1, 1],
-            [0.2, 0.2, 0.2, 0.3, 0.3],
-            [1, 1, 0.5, 0.2, 0.2],
-            [0.3, 0.4, 0.4, 0.4, 0.4],
-            [0.2, 0.2, 1, 0.3, 0.3],
-            [0.4, 0.2, 0.2, 0.3, 0.4],
-            [0.4, 1, 0.4, 0.4, 1],
-            [1, 0.3, 0.5, 1, 0.2],
-            [0.3, 0.3, 0.5, 0.2, 0.4],
-            [0.5, 0.2, 0.3, 0.6, 1],
-        ];
+    {   
+        /**
+         * Jangan lupa jalankan sql query yang ada di app/controllers/copras.sql di ..
+         * .. di phpmyadmin
+         */
+
+        // $kriteriasql = DB::connection('CoprasSql')->select('select nama_kriteria from kriteria');
+        // $pembobotansql = DB::connection('CoprasSql')->select('select bobot from kriteria');
+        // $tipesql = DB::connection('CoprasSql')->select('select tipe from kriteria');
+        // $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
+        
+        
+        // $kriteria       = [
+        //     "Transparansi dana",
+        //     "Efisien",
+        //     "Partisipasi warga",
+        //     "Tingkat darurat",
+        //     "Jumlah biaya",
+        // ];
+        $kriteriasql = DB::connection('CoprasSql')->select('select nama_kriteria from kriteria');
+        foreach ($kriteriasql as $row) {
+            // Explode the penilaian string into an array
+            $values = explode(',', $row->nama_kriteria);
+            // Append the array to the result array
+            foreach ($values as $key => $criterion) {
+                $kriteria[] = $criterion;
+            }  
+        }
+
+        // $pembobotan     = [0.3, 0.2, 0.2, 0.3, 0.15];
+        $pembobotansql = DB::connection('CoprasSql')->select('select bobot from kriteria');
+        foreach ($pembobotansql as $row) {
+            // Explode the penilaian string into an array
+            $values = explode(',', $row->bobot);
+            // Append the array to the result array
+            foreach ($values as $key => $weight) {
+                $pembobotan[] = (float)$weight;
+            }  
+        }
+
+        // $tipe           = ["b", "b", "b", "b", "c"];
+        $tipesql = DB::connection('CoprasSql')->select('select tipe from kriteria');
+        foreach ($tipesql as $row) {
+            // Explode the penilaian string into an array
+            $values = explode(',', $row->tipe);
+            // Append the array to the result array
+            foreach ($values as $key => $type) {
+                $tipe[] = $type;
+            }  
+        }
+        
+        // $alternatif     = [  
+        //     "Dana gotong royong bulanan",
+        //     "Dana Darurat untuk bantuan krisis",
+        //     "Dana untuk acara HUT RI",
+        //     "Dana untuk program kebersihan bulanan",
+        //     "Dana untuk pengadaan peralatan untuk RT",
+        //     "Biaya operasional rapat RT",
+        //     "Biaya operasional PKK",
+        //     "Dana untuk pelatihan workshop RT",
+        //     "Dana untuk kegiatan social",
+        //     "Dana untuk pembangunan infrastruktur RT"
+        // ];
+        $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
+        foreach ($alternatifsql as $row) {
+            // Explode the penilaian string into an array
+            $values = explode(',', $row->nama_alternatif);
+            // Append the array to the result array
+            foreach ($values as $key => $alt) {
+                $alternatif[] = $alt;
+            }  
+        }
+        // dd($alternatif);
+        
+        // $penilaian      = [
+        //     [0.3, 0.3, 0.3, 1, 1],
+        //     [0.2, 0.2, 0.2, 0.3, 0.3],
+        //     [1, 1, 0.5, 0.2, 0.2],
+        //     [0.3, 0.4, 0.4, 0.4, 0.4],
+        //     [0.2, 0.2, 1, 0.3, 0.3],
+        //     [0.4, 0.2, 0.2, 0.3, 0.4],
+        //     [0.4, 1, 0.4, 0.4, 1],
+        //     [1, 0.3, 0.5, 1, 0.2],
+        //     [0.3, 0.3, 0.5, 0.2, 0.4],
+        //     [0.5, 0.2, 0.3, 0.6, 1],
+        // ];
+        // dd($penilaian);
+        $penilaiansql = DB::connection('CoprasSql')->select('select penilaian from alternatif');
+        //dd($penilaiansql);
+        // Iterate through the data
+        foreach ($penilaiansql as $row) {
+            // Explode the penilaian string into an array
+            $values = explode(',', $row->penilaian);
+            foreach ($values as $key => $value) {
+                $values[$key] = (float)$value;
+            }
+            // Append the array to the result array
+            $penilaian[] = $values;
+        }
         // dd($penilaian);
         
         $normalisasi    = array_fill(0, count($alternatif), array_fill(0, count($kriteria), 0));
@@ -200,5 +267,18 @@ class CoprasController extends Controller
             'penilaian', 'kriteria', 'normalisasi', 'normalBobot', 'benefit', 'cost', 'botRelatif1',
             'botRelatif2', 'nilaiPrioritas', 'indexPerforma', 'peringkat', 'alternatif'
         ));
+    }
+
+    public function tambah_kat(){
+
+    }
+    public function tambah_alt(){
+
+    }
+    public function update_kat(){
+
+    }
+    public function update_alt(){
+
     }
 }

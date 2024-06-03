@@ -5,14 +5,104 @@
     <!-- Source of table: https://bbbootstrap.com/snippets/team-points-table-61285186# -->
     <div class="content-wrapper">
         <div class="row">
+        <div class="col-lg-12">
+            
+            <!-- <div class="d-flex justify-content-between align-items-center">
+                                        <h4 class="card-title card-title-dash">Todo list</h4>
+                                        <div class="add-items d-flex mb-0">
+                                          <button class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
+                                        </div>
+                                      </div>
+            <ol>
+                @foreach ($kriteria as $alt)
+                    <li>{{ $alt }}</li>
+                @endforeach
+            </ol>
+            <h4>Alternatif</h4>
+            <ol>
+                @foreach ($alternatif as $alt)
+                    <li>{{ $alt }}</li>
+                @endforeach
+            </ol> -->
+
+                <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                    <div>
+                        <h4 class="card-title card-title-dash">Kriteria</h4>
+                    </div>
+                    <div>
+                        <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</button>
+                        <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button>
+                    </div>
+                </div>
+                <table class="table-striped table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th  style="width:10%"></th>
+                            <th>Kriteria</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for ($x = 0; $x < count($kriteria); $x++)
+                        <tr>
+                            <td>C{{ $x+1 }}</td>
+                            <td>{{ $kriteria[$x] }}</td>
+                        </tr>
+                        @endfor
+                    </tbody>
+                </table>
+                <br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+            
+            <!-- <div class="d-flex justify-content-between align-items-center">
+                                        <h4 class="card-title card-title-dash">Todo list</h4>
+                                        <div class="add-items d-flex mb-0">
+                                          <button class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
+                                        </div>
+                                      </div>
+            <ol>
+                @foreach ($kriteria as $alt)
+                    <li>{{ $alt }}</li>
+                @endforeach
+            </ol>
+            <h4>Alternatif</h4>
+            <ol>
+                @foreach ($alternatif as $alt)
+                    <li>{{ $alt }}</li>
+                @endforeach
+            </ol> -->
+                <h4>Alternatif</h4>
+                <table class="table-striped table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width:10%"></th>
+                            <th>Alternatif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for ($x = 0; $x < count($botRelatif1); $x++)
+                        <tr>
+                            <td>A{{ $x+1 }}</td>
+                            <td>{{ $alternatif[$x] }}</td>
+                        </tr>
+                        @endfor
+                    </tbody>
+                </table>
+                <br><br>
+            </div>
+        </div>
+        <div class="row">
             <!-- <section class="content-info"> -->
                 <div class="container paddings-mini">
                     <div class="col-lg-12">
+
                     <h4>Matriks Penilaian</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th style="width:10%"></th>
                                     @for ($x = 0; $x < count($kriteria); $x++)
                                         <th>C{{ $x+1 }}</th>
                                     @endfor
@@ -35,7 +125,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th style="width:10%"></th>
                                     @for ($x = 0; $x < count($kriteria); $x++)
                                         <th>C{{ $x+1 }}</th>
                                     @endfor
@@ -58,7 +148,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th style="width:10%"></th>
                                     @for ($x = 0; $x < count($kriteria); $x++)
                                         <th>C{{ $x+1 }}</th>
                                     @endfor
@@ -161,7 +251,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th>Peringkat</th>
+                                    <th style="width:10%">Peringkat</th>
                                     <th>Alternatif</th>
                                 </tr>
                             </thead>
