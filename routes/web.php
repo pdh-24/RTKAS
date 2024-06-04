@@ -7,6 +7,9 @@ use App\Http\Controllers\CoprasController;
 use App\Http\Controllers\RT\RTController;
 use App\Http\Controllers\BENDAHARA\BendaharaController;
 use App\Http\Controllers\WARGA\WargaController;
+use App\Http\Controllers\COPRASNEW\CoprasnewController;
+use App\Http\Controllers\COPRASNEW\SubKriteriaController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,3 +67,40 @@ Route::get('/dashboardwarga', [WargaController::class, 'index'])->name('dashboar
 Route::get('/pengumuman_warga', [WargaController::class, 'pengumuman_warga'])->name('pengumuman_warga');
 Route::get('/request_dana_darurat_warga', [WargaController::class, 'request_dana_darurat_warga'])->name('request_dana_darurat_warga');
 Route::get('/bayar_iuran_warga', [WargaController::class, 'bayar_iuran_warga'])->name('bayar_iuran_warga');
+
+//copras
+Route::get('/dashboardcopras', [CoprasnewController::class, 'index'])->name('dashboardcopras');
+
+// Kriteria Routes
+Route::get('/data_kriteria', [CoprasnewController::class, 'data_kriteria'])->name('data_kriteria');
+Route::get('/tambah_data_kriteria', [CoprasnewController::class, 'tambah_data_kriteria'])->name('tambah_data_kriteria');
+Route::post('/simpan_data_kriteria', [CoprasnewController::class, 'simpan_data_kriteria'])->name('simpan_data_kriteria');
+Route::get('/edit_data_kriteria/{id}', [CoprasnewController::class, 'edit_data_kriteria'])->name('edit_data_kriteria');
+Route::put('/kriteria/{id}', [CoprasnewController::class, 'update_data_kriteria'])->name('update_data_kriteria');
+Route::delete('/kriteria/{id}', [CoprasnewController::class, 'hapus_data_kriteria'])->name('hapus_data_kriteria');
+
+// Sub Kriteria Routes
+Route::get('/data_sub_kriteria', [CoprasnewController::class, 'data_sub_kriteria'])->name('data_sub_kriteria');
+Route::get('/tambah_data_subkriteria/{kode}', [CoprasnewController::class, 'tambah_data_subkriteria'])->name('tambah_data_subkriteria');
+Route::post('/simpan_data_subkriteria/{kode}', [CoprasnewController::class, 'simpan_data_subkriteria'])->name('simpan_data_subkriteria');
+Route::get('/edit_data_subkriteria/{id}', [CoprasnewController::class, 'edit_data_subkriteria'])->name('edit_data_subkriteria');
+Route::put('/update_data_subkriteria/{id}', [CoprasnewController::class, 'update_data_subkriteria'])->name('update_data_subkriteria');
+Route::delete('/hapus_data_subkriteria/{id}', [CoprasnewController::class, 'hapus_data_subkriteria'])->name('hapus_data_subkriteria');
+
+//data Alternatif
+Route::get('/data_alternatif', [CoprasnewController::class, 'data_alternatif'])->name('data_alternatif');
+Route::get('/tambah_data_alternatif', [CoprasnewController::class, 'tambah_data_alternatif'])->name('tambah_data_alternatif');
+Route::post('/simpan_data_alternatif', [CoprasnewController::class, 'simpan_data_alternatif'])->name('simpan_data_alternatif');
+Route::get('/edit_data_alternatif/{id}', [CoprasnewController::class, 'edit_data_alternatif'])->name('edit_data_alternatif');
+Route::put('/update_data_alternatif/{id}', [CoprasnewController::class, 'update_data_alternatif'])->name('update_data_alternatif');
+Route::delete('/hapus_data_alternatif/{id}', [CoprasnewController::class, 'hapus_data_alternatif'])->name('hapus_data_alternatif');
+
+//penilaian
+Route::get('/data_penilaian', [CoprasnewController::class, 'data_penilaian'])->name('data_penilaian');
+Route::get('/input_data_penilaian/{id}', [CoprasnewController::class, 'input_data_penilaian'])->name('input_data_penilaian');
+Route::post('/simpan_data_penilaian/{id}', [CoprasnewController::class, 'simpan_data_penilaian'])->name('simpan_data_penilaian');
+Route::get('/edit_data_penilaian/{id}', [CoprasnewController::class, 'edit_data_penilaian'])->name('edit_data_penilaian');
+Route::put('/update_data_penilaian/{id}', [CoprasnewController::class, 'update_data_penilaian'])->name('update_data_penilaian');
+//data perhitungan
+Route::get('/data_perhitungan', [CoprasnewController::class, 'data_perhitungan'])->name('data_perhitungan');
+

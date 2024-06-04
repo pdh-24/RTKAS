@@ -67,18 +67,18 @@
 <body class="with-welcome-text">
 <div class="container-scroller">
     <!-- Navbar -->
-    @include('layoutscopras.navbar')
+    @include('layoutscoprascoba.navbar')
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
         <!-- Sidebar -->
-        @include('layoutscopras.sidebar')
+        @include('layoutscoprascoba.sidebar')
         <!-- partial -->
         <div class="main-panel">
             <!-- Content -->
             @yield('content')
             <!-- End of Content -->
             <!-- Footer -->
-            @include('layoutscopras.footer')
+            @include('layoutscoprascoba.footer')
             <!-- End of Footer -->
         </div>
         <!-- main-panel ends -->
