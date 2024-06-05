@@ -30,6 +30,7 @@ Route::get('/copras', [CoprasController::class, 'index']);
 Route::get('/spk', [CoprasController::class, 'spk']);
 Route::get('/copras/tambah_kategori', [CoprasController::class, 'tambah_kat']);
 Route::post('/copras/tambah_kategori_simpan', [CoprasController::class, 'tambah_kat_simpan']);
+Route::get('/copras/coba', [CoprasController::class, 'coba']);
 
 //informasi admin
 Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumuman');

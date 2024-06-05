@@ -30,7 +30,7 @@
                         <h4 class="card-title card-title-dash">Kriteria</h4>
                     </div>
                     <div>
-                        <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</button>
+                        <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
                         <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button>
                     </div>
                 </div>
