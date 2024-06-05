@@ -11,7 +11,7 @@
                         <h4 class="card-title card-title-dash">Kriteria</h4>
                     </div>
                     <div>
-                        <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
+                        <a href="copras/tambah_kriteria" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
                         <!-- <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button> -->
                     </div>
                 </div>
@@ -45,12 +45,22 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <h4>Alternatif</h4>
+                <!-- <h4>Alternatif</h4> -->
+                <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                    <div>
+                        <h4 class="card-title card-title-dash">Alternatif</h4>
+                    </div>
+                    <div>
+                        <a href="copras/tambah_alternatif" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
+                        <!-- <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button> -->
+                    </div>
+                </div>
                 <table class="table-striped table-responsive table-hover">
                     <thead>
                         <tr>
                             <th style="width:10%"></th>
                             <th>Alternatif</th>
+                            <th>Tindakan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,6 +68,14 @@
                         <tr>
                             <td>A{{ $x+1 }}</td>
                             <td>{{ $alternatif[$x] }}</td>
+                            <td style="width: 20%;">
+                                <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                    <i class="menu-icon mdi material-symbols-outlined">edit_square</i>
+                                </a> 
+                                <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                    <i class="menu-icon mdi material-symbols-outlined">delete</i>
+                                </a>
+                            </td>
                         </tr>
                         @endfor
                     </tbody>
