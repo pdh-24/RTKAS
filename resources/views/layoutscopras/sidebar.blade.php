@@ -1,4 +1,4 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color: silver;">
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
       <a class="nav-link" href="{{ url('/dashboardbendahara') }}">

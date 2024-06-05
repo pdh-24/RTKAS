@@ -6,25 +6,6 @@
     <div class="content-wrapper">
         <div class="row">
         <div class="col-lg-12">
-            
-            <!-- <div class="d-flex justify-content-between align-items-center">
-                                        <h4 class="card-title card-title-dash">Todo list</h4>
-                                        <div class="add-items d-flex mb-0">
-                                          <button class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
-                                        </div>
-                                      </div>
-            <ol>
-                @foreach ($kriteria as $alt)
-                    <li>{{ $alt }}</li>
-                @endforeach
-            </ol>
-            <h4>Alternatif</h4>
-            <ol>
-                @foreach ($alternatif as $alt)
-                    <li>{{ $alt }}</li>
-                @endforeach
-            </ol> -->
-
                 <div class="d-sm-flex justify-content-between align-items-center mb-2">
                     <div>
                         <h4 class="card-title card-title-dash">Kriteria</h4>
@@ -55,24 +36,6 @@
         </div>
         <div class="row">
             <div class="col-lg-12">
-            
-            <!-- <div class="d-flex justify-content-between align-items-center">
-                                        <h4 class="card-title card-title-dash">Todo list</h4>
-                                        <div class="add-items d-flex mb-0">
-                                          <button class="add btn btn-icons btn-rounded btn-primary todo-list-add-btn text-white me-0 pl-12p"><i class="mdi mdi-plus"></i></button>
-                                        </div>
-                                      </div>
-            <ol>
-                @foreach ($kriteria as $alt)
-                    <li>{{ $alt }}</li>
-                @endforeach
-            </ol>
-            <h4>Alternatif</h4>
-            <ol>
-                @foreach ($alternatif as $alt)
-                    <li>{{ $alt }}</li>
-                @endforeach
-            </ol> -->
                 <h4>Alternatif</h4>
                 <table class="table-striped table-responsive table-hover">
                     <thead>

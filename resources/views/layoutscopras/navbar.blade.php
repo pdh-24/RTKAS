@@ -1,4 +1,4 @@
-<nav class="navbar navbar  col-12 p-0 fixed-top  " style="background-color: silver;">
+<nav class="navbar navbar  col-12 p-0 fixed-top  ">
   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
       <div class="me-3">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
