@@ -12,7 +12,7 @@
                     </div>
                     <div>
                         <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
-                        <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button>
+                        <!-- <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button> -->
                     </div>
                 </div>
                 <table class="table-striped table-responsive table-hover">
@@ -20,6 +20,7 @@
                         <tr>
                             <th  style="width:10%"></th>
                             <th>Kriteria</th>
+                            <th>Tindakan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,6 +28,14 @@
                         <tr>
                             <td>C{{ $x+1 }}</td>
                             <td>{{ $kriteria[$x] }}</td>
+                            <td style="width: 20%;">
+                                <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                    <i class="menu-icon mdi material-symbols-outlined">edit_square</i>
+                                </a> 
+                                <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                    <i class="menu-icon mdi material-symbols-outlined">delete</i>
+                                </a>
+                            </td>
                         </tr>
                         @endfor
                     </tbody>
@@ -134,7 +143,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th>Alternatif</th>
+                                    <th style="text-align: center;">Alternatif</th>
                                     <th>Benefit</th>
                                     <th>Cost</th>
                                 </tr>

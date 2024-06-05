@@ -26,10 +26,12 @@ use App\Http\Controllers\COPRASNEW\SubKriteriaController;
 Route::get('/dashboard', [HomeController::class, 'index'])->name('home');   
 Route::get('/tables', [AkunController::class, 'rute'])->name('table');
 Route::get('/coba', [HomeController::class, 'coba']);
+
+//Route untuk SPK metode Copras
 Route::get('/copras', [CoprasController::class, 'index']);
 Route::get('/spk', [CoprasController::class, 'spk']);
-Route::get('/copras/tambah_kategori', [CoprasController::class, 'tambah_kat']);
-Route::post('/copras/tambah_kategori_simpan', [CoprasController::class, 'tambah_kat_simpan']);
+Route::get('/copras/tambah_kriteria', [CoprasController::class, 'tambah_krit']);
+Route::POST('/copras/tambah_kriteria_simpan', [CoprasController::class, 'tambah_krit_simpan']);
 Route::get('/copras/coba', [CoprasController::class, 'coba']);
 
 //informasi admin

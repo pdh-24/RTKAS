@@ -211,10 +211,10 @@ class CoprasController extends Controller
         ));
     }
 
-    public function tambah_kat(){
+    public function tambah_krit(){
         return view('layoutscopras.kriteria_tambah');
     }
-    public function tambah_kat_simpan(Request $request){
+    public function tambah_krit_simpan(Request $request){
         $nama_kriteria = $request->input('nama_kriteria');
         $penilaian_kriteria = $request->input('penilaian_kriteria');
         $bobot_tipe_kriteria = $request->input('bobotTipe_kriteria');
