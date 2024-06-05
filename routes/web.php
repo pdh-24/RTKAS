@@ -25,10 +25,14 @@ Route::get('/tables', [AkunController::class, 'rute'])->name('table');
 Route::get('/coba', [HomeController::class, 'coba']);
 Route::get('/copras', [CoprasController::class, 'index']);
 Route::get('/spk', [CoprasController::class, 'spk']);
+Route::get('/copras/tambah_kategori', [CoprasController::class, 'tambah_kat']);
+Route::post('/copras/tambah_kategori_simpan', [CoprasController::class, 'tambah_kat_simpan']);
+
 //informasi admin
 Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumuman');
 Route::get('/dana_darurat', [HomeController::class, 'dana_darurat'])->name('dana_darurat');
 Route::get('/iuran', [HomeController::class, 'iuran'])->name('iuran');
+
 //kelola admin
 Route::get('/kelola_dwarga', [HomeController::class, 'kelola_dwarga'])->name('kelola_dwarga');
 Route::get('/datakas_kelola', [HomeController::class, 'datakas_kelola'])->name('datakas_kelola');
