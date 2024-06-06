@@ -31,12 +31,20 @@
                             <td>C{{ $x+1 }}</td>
                             <td>{{ $kriteria[$x] }}</td>
                             <td style="width: 20%;">
+                                <form method="POST" action="copras/hapus_kriteria" class="form-inline">
+                                    {{ csrf_field() }}
+                                    <input type="text" name="kriteria" class="form-control form-control-sm d-none" value="{{ $kriteria[$x] }}">
+                                    <button type="submit" class="btn btn-primary p-2">
+                                        <i class="menu-icon mdi material-symbols-outlined">delete</i>
+                                    </button>
+                                    <!-- <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                        <i class="menu-icon mdi material-symbols-outlined">delete</i>
+                                    </a> -->
+                                </form>
+
                                 <!-- <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
                                     <i class="menu-icon mdi material-symbols-outlined">edit_square</i>
                                 </a>  -->
-                                <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
-                                    <i class="menu-icon mdi material-symbols-outlined">delete</i>
-                                </a>
                             </td>
                         </tr>
                         @endfor
