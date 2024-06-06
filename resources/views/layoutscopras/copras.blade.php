@@ -2,7 +2,7 @@
 @extends('layoutscopras.template')
 
 @section('content')
-    <!-- Source of table: https://bbbootstrap.com/snippets/team-points-table-61285186# -->
+    <!-- Source of database: https://bbbootstrap.com/snippets/team-points-table-61285186# -->
     <div class="content-wrapper">
         <div class="row">
         <div class="card">
@@ -100,9 +100,6 @@
                                     <button type="submit" class="btn btn-primary p-2">
                                         <i class="menu-icon mdi material-symbols-outlined">delete</i>
                                     </button>
-                                    <!-- <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
-                                        <i class="menu-icon mdi material-symbols-outlined">delete</i>
-                                    </a> -->
                                 </form>
 
                                 <!-- <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">

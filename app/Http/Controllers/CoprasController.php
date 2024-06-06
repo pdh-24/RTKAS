@@ -224,12 +224,13 @@ class CoprasController extends Controller
         foreach ($nama_alt as $row) {
             // Explode the penilaian string into an array
             $values = explode(',', $row->nama_alternatif);
+            
             // Append the array to the result array
             foreach ($values as $key => $alt) {
                 $alternatif[] = $alt;
             }  
         }
-        // dd($alternatif);
+
         $jumlah = (int) $jumlah;
         return view('layoutscopras.kriteria_tambah2', compact('jumlah', 'alternatif'));
     }
@@ -251,8 +252,8 @@ class CoprasController extends Controller
 
             $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
             $penilaiansql = DB::connection('CoprasSql')->select('select penilaian from alternatif');
+            
             // Iterate through the data
-            // $penilaian_kriteria[$i] = explode(' ', $penilaiansql[$i]);
             for ($j = 0; $j < count($alternatifsql); $j++){
                 $alternatif = $alternatifsql[$j]->nama_alternatif;
                 $penilaian = explode(', ', $penilaiansql[$j]->penilaian);
@@ -278,42 +279,22 @@ class CoprasController extends Controller
         foreach ($kriteriasql as $row) { 
             $kriteria[] = $row->nama_kriteria;
         }
-        // dd($alternatif);
+
         $jumlah = (int) $jumlah;
         return view('layoutscopras.alt_tambah2', compact('jumlah', 'kriteria'));
     }
     public function tambah_alt_simpan(Request $request){
         $nama_alternatif = $request->input('nama_alternatif');
-        // dd($nama_alternatif);
+
         $penilaian = $request->input('penilaian');
-        // dd($penilaian);
-        // foreach ($bobot as $key => $value) {
-        //     $bobot[$key] = str_replace(',', '.', $value);
-        // }
 
         for ($i = 0; $i < count($nama_alternatif); $i++) {
             $nilai = implode(', ', $penilaian[$i]);
-            // dd($nilai);
+
             DB::connection("CoprasSql")->table('alternatif')->insert([
                 'nama_alternatif' => $nama_alternatif[$i],
                 'penilaian' => $nilai
             ]);
-
-            // $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
-            // $penilaiansql = DB::connection('CoprasSql')->select('select penilaian from alternatif');
-            // // Iterate through the data
-            // $penilaian_kriteria[$i] = explode(' ', $penilaiansql[$i]);
-            // for ($j = 0; $j < count($alternatifsql); $j++){
-            //     $alternatif = $alternatifsql[$j]->nama_alternatif;
-            //     $penilaian = explode(', ', $penilaiansql[$j]->penilaian);
-            //     $penilaian[] = 0;
-            //     $penilaian = implode(', ', $penilaian);
-
-            //     DB::connection("CoprasSql")->table('alternatif')
-            //         ->where('nama_alternatif', '=', $alternatif)
-            //         ->update(['penilaian' => $penilaian
-            //     ]);
-            // }
         } 
         return redirect('/copras');
     }
@@ -325,6 +306,7 @@ class CoprasController extends Controller
         foreach ($penilaiansql as $row) {
             // Explode the penilaian string into an array
             $values = explode(',', $row->penilaian);
+            
             foreach ($values as $key => $value) {
                 $values[$key] = (float)$value;
             }
@@ -333,14 +315,13 @@ class CoprasController extends Controller
         }
 
         $kriteriasql = DB::connection('CoprasSql')->select('select nama_kriteria from kriteria');
-        // dd($kriteriasql);
+
         foreach ($kriteriasql as $row) { 
             $kriteria[] = $row->nama_kriteria;
         } 
-        // dd($kriteria);
         
         $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
-        // dd($alternatifsql);
+
         foreach ($alternatifsql as $row) { 
             $alternatif[] = $row->nama_alternatif;
         } 
@@ -350,7 +331,7 @@ class CoprasController extends Controller
 
     public function simpan_sunting_penilaian(Request $request){
         $penilaian = $request->input('penilaian');
-        // dd($penilaian);
+
         $nama_alt = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
 
         for ($i=0; $i < count($penilaian); $i++) { 
@@ -359,14 +340,14 @@ class CoprasController extends Controller
             }
             $penilaian[$i] = implode(", ", $penilaian[$i]);
         }
-        // dd($penilaian);
 
         for ($i = 0; $i < count($nama_alt); $i++) {
-            // if (!empty($nama_alt[$i]) && !empty($penilaian_kriteria[$i])) {
-                DB::connection('CoprasSql')->table('alternatif')
-                    ->where('nama_alternatif', '=', $nama_alt[$i]->nama_alternatif)
-                    ->update(['penilaian' => $penilaian[$i]]);
-            // }
+
+            DB::connection('CoprasSql')->table('alternatif')
+                ->where('nama_alternatif', '=', $nama_alt[$i]->nama_alternatif)
+                ->update([
+                    'penilaian' => $penilaian[$i]
+            ]);
         }
         return redirect('/copras');
     }
@@ -382,19 +363,16 @@ class CoprasController extends Controller
     public function hapus_krit(Request $request){
         $nama_kriteria = $request->input('kriteria');
         $id = $request->input('id');
-        // dd($nama_kriteria);
 
         $penilaiansql = DB::connection('CoprasSql')->select('select nama_alternatif, penilaian from alternatif');
-        // dd($penilaiansql);
         
         foreach ($penilaiansql as $key => $value) {
             $alternatif = $penilaiansql[$key]->nama_alternatif;
             $penilaian = explode(', ', $penilaiansql[$key]->penilaian);
-            // dd($penilaian);
-            // dd($id);
+
             array_splice($penilaian, $id, 1);
             $penilaian = implode(', ', $penilaian);
-            // dd($penilaian);
+
             DB::connection("CoprasSql")->table('alternatif')
                 ->where('nama_alternatif', '=', $alternatif)
                 ->update([

@@ -7,7 +7,6 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Tambah jumlah kriteria</h4>
-                    <!-- <p class="card-description">Masukkan jumlah kriteria baru </p> -->
                     <form action="tambah_kriteria2/simpan" method="POST" class="forms-sample">
                             
                         {{ csrf_field() }}

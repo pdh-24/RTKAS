@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="card">
-                    <div class="card-body">
+                <div class="card-body">
                     <div class="col-12 grid-margin">
                         <h4>Kriteria</h4>
                         <table class="table-striped table-responsive table-hover">
@@ -58,8 +58,8 @@
                                 @endfor
                             </tbody>
                         </table>
-            </div>
-            <div class="col-12 grid-margin">
+                    </div>
+                    <div class="col-12 grid-margin">
                         <h4>Alternatif</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
@@ -82,5 +82,5 @@
             </div>
         </div>
     </div>
-
+    
 @endsection
