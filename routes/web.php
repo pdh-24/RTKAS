@@ -30,10 +30,17 @@ Route::get('/coba', [HomeController::class, 'coba']);
 //Route untuk SPK metode Copras
 Route::get('/copras', [CoprasController::class, 'index']);
 Route::get('/spk', [CoprasController::class, 'spk']);
-Route::get('/copras/tambah_kriteria', [CoprasController::class, 'tambah_krit']);
-Route::POST('/copras/tambah_kriteria_simpan', [CoprasController::class, 'tambah_krit_simpan']);
-Route::get('/copras/tambah_alternatif', [CoprasController::class, 'tambah_alt']);
 Route::get('/copras/coba', [CoprasController::class, 'coba']);
+
+//Route untuk kriteria SPK
+Route::get('/copras/tambah_kriteria', [CoprasController::class, 'tambah_jumlah_krit']);
+Route::POST('/copras/tambah_kriteria2', [CoprasController::class, 'tambah_krit']);
+Route::POST('/copras/tambah_kriteria2/simpan', [CoprasController::class, 'tambah_krit_simpan']);
+
+//Route untuk alternatif SPK
+Route::get('/copras/tambah_alternatif', [CoprasController::class, 'tambah_alt']);
+
+//Route untuk edit dan simpan matriks penilaian SPK
 Route::get('/copras/sunting_penilaian', [CoprasController::class, 'sunting_penilaian']);
 Route::POST('/copras/sunting_penilaian/simpan', [CoprasController::class, 'simpan_sunting_penilaian']);
 

@@ -213,69 +213,61 @@ class CoprasController extends Controller
         ));
     }
 
-    public function tambah_krit(){
+    public function tambah_jumlah_krit(){
         return view('layoutscopras.kriteria_tambah');
+    }
+
+    public function tambah_krit(Request $request){
+        $jumlah = $request->input('jumlahKriteriaBaru');
+        $nama_alt = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
+        foreach ($nama_alt as $row) {
+            // Explode the penilaian string into an array
+            $values = explode(',', $row->nama_alternatif);
+            // Append the array to the result array
+            foreach ($values as $key => $alt) {
+                $alternatif[] = $alt;
+            }  
+        }
+        // dd($alternatif);
+        $jumlah = (int) $jumlah;
+        return view('layoutscopras.kriteria_tambah2', compact('jumlah', 'alternatif'));
     }
     public function tambah_krit_simpan(Request $request){
         $nama_kriteria = $request->input('nama_kriteria');
-        $penilaian_kriteria = $request->input('penilaian_kriteria');
-        $bobot_tipe_kriteria = $request->input('bobotTipe_kriteria');
+        $bobot = $request->input('bobot');
+        $tipe = $request->input('tipe');
         
-        $penilaiansql = DB::connection('CoprasSql')->select('select penilaian from alternatif');
+        // for ($i=0; $i < count($bobot); $i++) { 
+        //     $bobot[$i] = str_replace(',', '.', $bobot[$i]);
+        // }
+        foreach ($bobot as $key => $value) {
+            $bobot[$key] = str_replace(',', '.', $value);
+        }
+
         for ($i = 0; $i < count($nama_kriteria); $i++) {
-                $penilaian_kriteria[$i] = str_replace(',', '.', $penilaian_kriteria[$i]);
-                
-                $bobot_tipe_kriteria[$i] = explode(" ", $bobot_tipe_kriteria[$i]);
-                $bobot_tipe_kriteria[$i][0] = str_replace(',', '.', $bobot_tipe_kriteria[$i][0]);
-                
-                // Simpan kriteria ke database
-                DB::connection("CoprasSql")->table('kriteria')->insert([
-                    'nama_kriteria' => $nama_kriteria[$i],
-                    'bobot' => $bobot_tipe_kriteria[$i][0],
-                    'tipe' => $bobot_tipe_kriteria[$i][1]
-                ]);
+            DB::connection("CoprasSql")->table('kriteria')->insert([
+                'nama_kriteria' => $nama_kriteria[$i],
+                'bobot' => $bobot[$i],
+                'tipe' => $tipe[$i]
+            ]);
 
-                // Simpan penilaian ke database
-                $penilaiansql = DB::connection('CoprasSql')->select('select nama_alternatif,penilaian from alternatif');
-
+                $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
+                $penilaiansql = DB::connection('CoprasSql')->select('select penilaian from alternatif');
                 // Iterate through the data
-                $penilaian_kriteria[$i] = explode(' ', $penilaian_kriteria[$i]);
-
-                for ($j = 0; $j < count($penilaiansql); $j++){
-
-                    $values = explode(', ', $penilaiansql[$j]->penilaian);
-                    $values[] = $penilaian_kriteria[$i][$j];
-                    $values = implode(', ', $values);
+                // $penilaian_kriteria[$i] = explode(' ', $penilaiansql[$i]);
+                for ($j = 0; $j < count($alternatifsql); $j++){
+                    $alternatif = $alternatifsql[$j]->nama_alternatif;
+                    $penilaian = explode(', ', $penilaiansql[$j]->penilaian);
+                    $penilaian[] = 0;
+                    $penilaian = implode(', ', $penilaian);
 
                     DB::connection("CoprasSql")->table('alternatif')
-                        ->where('nama_alternatif', '=', $penilaiansql[$j]->nama_alternatif)
-                        ->update(['penilaian' => $values]
-                    );
+                        ->where('nama_alternatif', '=', $alternatif)
+                        ->update(['penilaian' => $penilaian
+                    ]);
                 }
         } 
-        return redirect('/copras');
-    }
-    public function simpan_sunting_penilaian(Request $request){
-        $penilaian = $request->input('penilaian');
-        // dd($penilaian);
-        $nama_alt = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
-
-        for ($i=0; $i < count($penilaian); $i++) { 
-            foreach ($penilaian[$i] as $key => $value) {
-                $penilaian[$i][$key] = str_replace(',', '.', $value);
-            }
-            $penilaian[$i] = implode(", ", $penilaian[$i]);
-        }
-        // dd($penilaian);
-
-        for ($i = 0; $i < count($nama_alt); $i++) {
-            // if (!empty($nama_alt[$i]) && !empty($penilaian_kriteria[$i])) {
-                DB::connection('CoprasSql')->table('alternatif')
-                    ->where('nama_alternatif', '=', $nama_alt[$i]->nama_alternatif)
-                    ->update(['penilaian' => $penilaian[$i]]);
-            // }
-        }
-        return redirect('/copras');
+        return redirect('/copras/sunting_penilaian');
     }
 
     public function sunting_penilaian(){
@@ -302,6 +294,29 @@ class CoprasController extends Controller
             }  
         }
         return view('layoutscopras.sunting_penilaian', compact('penilaian', 'kriteria'));
+    }
+
+    public function simpan_sunting_penilaian(Request $request){
+        $penilaian = $request->input('penilaian');
+        // dd($penilaian);
+        $nama_alt = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
+
+        for ($i=0; $i < count($penilaian); $i++) { 
+            foreach ($penilaian[$i] as $key => $value) {
+                $penilaian[$i][$key] = str_replace(',', '.', $value);
+            }
+            $penilaian[$i] = implode(", ", $penilaian[$i]);
+        }
+        // dd($penilaian);
+
+        for ($i = 0; $i < count($nama_alt); $i++) {
+            // if (!empty($nama_alt[$i]) && !empty($penilaian_kriteria[$i])) {
+                DB::connection('CoprasSql')->table('alternatif')
+                    ->where('nama_alternatif', '=', $nama_alt[$i]->nama_alternatif)
+                    ->update(['penilaian' => $penilaian[$i]]);
+            // }
+        }
+        return redirect('/copras');
     }
 
     public function tambah_alt(){

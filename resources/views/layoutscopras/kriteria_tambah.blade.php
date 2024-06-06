@@ -4,25 +4,25 @@
 <div class="content-wrapper">
     <div class="row">
         <div class="col-12 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Tambah kriteria</h4>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Tambah jumlah kriteria</h4>
                     <!-- <p class="card-description">Masukkan jumlah kriteria baru </p> -->
-                    <!-- <form class="form-inline">
-                        <label class="sr-only" for="jumlah">Name</label>
+                    <form method="POST" action="tambah_kriteria2" class="form-inline">
+                        {{ csrf_field() }}
+                        <!-- <label class="sr-only" for="jumlah">Name</label>
                         <input type="text" class="form-control form-control-sm mb-2 mr-sm-2" id="jumlah" placeholder="Jumlah kriteria baru"> -->
                         <div class="form-group">
                             <label>Masukkan jumlah kriteria baru</label>
-                            <input type="text" id="inputJumlah" class="form-control form-control-sm" placeholder="jumlah kriteria baru">
+                            <input type="text" name="jumlahKriteriaBaru" class="form-control form-control-sm" placeholder="Jumlah kriteria baru">
                         </div>
-                        <div id="tambahKriteria" class="btn btn-primary mb-2">Lanjut</div>
-                    <!-- </form> -->
-                    
+                        <button id="tambahKriteria" class="btn btn-primary mb-2">Lanjut</button>
+                    </form>   
                 </div>
             </div>
         </div>
     </div>
-    <script>
+    <!-- <script>
         let tambah = document.getElementById("tambahKriteria");
         tambah.addEventListener("click", ()=>{
             let jumlah = Number(document.getElementById("inputJumlah").value);
@@ -83,6 +83,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 @endsection
