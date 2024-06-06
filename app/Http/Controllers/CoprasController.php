@@ -129,7 +129,9 @@ class CoprasController extends Controller
         function hitungBotRelatif(&$cost, &$botRelatif1, &$botRelatif2) {
             $totalBotRelatif = 0;
             for ($x = 0; $x < count($cost); $x++) {
-                $botRelatif1[$x] = 1 / $cost[$x];
+                if ($cost[$x] != 0) $botRelatif1[$x] = 1 / $cost[$x];
+                else                $botrelatif1[$x] = 0;
+                
                 $totalBotRelatif += $botRelatif1[$x];
             }
             for ($x = 0; $x < count($cost); $x++) {
