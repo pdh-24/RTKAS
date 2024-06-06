@@ -38,7 +38,9 @@ Route::POST('/copras/tambah_kriteria2', [CoprasController::class, 'tambah_krit']
 Route::POST('/copras/tambah_kriteria2/simpan', [CoprasController::class, 'tambah_krit_simpan']);
 
 //Route untuk alternatif SPK
-Route::get('/copras/tambah_alternatif', [CoprasController::class, 'tambah_alt']);
+Route::get('/copras/tambah_alt', [CoprasController::class, 'tambah_jumlah_alt']);
+Route::POST('/copras/tambah_alt2', [CoprasController::class, 'tambah_alt']);
+Route::POST('/copras/tambah_alt2/simpan', [CoprasController::class, 'tambah_alt_simpan']);
 
 //Route untuk edit dan simpan matriks penilaian SPK
 Route::get('/copras/sunting_penilaian', [CoprasController::class, 'sunting_penilaian']);

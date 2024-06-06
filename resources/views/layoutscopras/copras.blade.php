@@ -53,7 +53,7 @@
                         <h4 class="card-title card-title-dash">Alternatif</h4>
                     </div>
                     <div>
-                        <a href="copras/tambah_alternatif" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
+                        <a href="copras/tambah_alt" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
                         <!-- <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button> -->
                     </div>
                 </div>

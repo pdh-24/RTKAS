@@ -94,10 +94,11 @@ class CoprasController extends Controller
                 for ($x = 0; $x < count($penilaian); $x++) {    // x menyatakan alternatif ke-X
                     $total += $penilaian[$x][$y];
                 }
-        
+
                 // Normalisasi untuk setiap entri
                 for ($x = 0; $x < count($penilaian); $x++) {    // x menyatakan alternatif ke-X
-                    $normalisasi[$x][$y] = $penilaian[$x][$y] / $total; 
+                    if ($total == 0)   $normalisasi[$x][$y] = 0;
+                    else                $normalisasi[$x][$y] = $penilaian[$x][$y] / $total;
                 }
             }
         }
@@ -236,10 +237,7 @@ class CoprasController extends Controller
         $nama_kriteria = $request->input('nama_kriteria');
         $bobot = $request->input('bobot');
         $tipe = $request->input('tipe');
-        
-        // for ($i=0; $i < count($bobot); $i++) { 
-        //     $bobot[$i] = str_replace(',', '.', $bobot[$i]);
-        // }
+
         foreach ($bobot as $key => $value) {
             $bobot[$key] = str_replace(',', '.', $value);
         }
@@ -251,23 +249,73 @@ class CoprasController extends Controller
                 'tipe' => $tipe[$i]
             ]);
 
-                $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
-                $penilaiansql = DB::connection('CoprasSql')->select('select penilaian from alternatif');
-                // Iterate through the data
-                // $penilaian_kriteria[$i] = explode(' ', $penilaiansql[$i]);
-                for ($j = 0; $j < count($alternatifsql); $j++){
-                    $alternatif = $alternatifsql[$j]->nama_alternatif;
-                    $penilaian = explode(', ', $penilaiansql[$j]->penilaian);
-                    $penilaian[] = 0;
-                    $penilaian = implode(', ', $penilaian);
+            $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
+            $penilaiansql = DB::connection('CoprasSql')->select('select penilaian from alternatif');
+            // Iterate through the data
+            // $penilaian_kriteria[$i] = explode(' ', $penilaiansql[$i]);
+            for ($j = 0; $j < count($alternatifsql); $j++){
+                $alternatif = $alternatifsql[$j]->nama_alternatif;
+                $penilaian = explode(', ', $penilaiansql[$j]->penilaian);
+                $penilaian[] = 0;
+                $penilaian = implode(', ', $penilaian);
 
-                    DB::connection("CoprasSql")->table('alternatif')
-                        ->where('nama_alternatif', '=', $alternatif)
-                        ->update(['penilaian' => $penilaian
-                    ]);
-                }
+                DB::connection("CoprasSql")->table('alternatif')
+                    ->where('nama_alternatif', '=', $alternatif)
+                    ->update(['penilaian' => $penilaian
+                ]);
+            }
         } 
         return redirect('/copras/sunting_penilaian');
+    }
+
+    public function tambah_jumlah_alt(){
+        return view('layoutscopras.alt_tambah');
+    }
+
+    public function tambah_alt(Request $request){
+        $jumlah = $request->input('jumlahAlternatifBaru');
+        $kriteriasql = DB::connection('CoprasSql')->select('select nama_kriteria from kriteria');
+        foreach ($kriteriasql as $row) { 
+            $kriteria[] = $row->nama_kriteria;
+        }
+        // dd($alternatif);
+        $jumlah = (int) $jumlah;
+        return view('layoutscopras.alt_tambah2', compact('jumlah', 'kriteria'));
+    }
+    public function tambah_alt_simpan(Request $request){
+        $nama_alternatif = $request->input('nama_alternatif');
+        // dd($nama_alternatif);
+        $penilaian = $request->input('penilaian');
+        // dd($penilaian);
+        // foreach ($bobot as $key => $value) {
+        //     $bobot[$key] = str_replace(',', '.', $value);
+        // }
+
+        for ($i = 0; $i < count($nama_alternatif); $i++) {
+            $nilai = implode(', ', $penilaian[$i]);
+            // dd($nilai);
+            DB::connection("CoprasSql")->table('alternatif')->insert([
+                'nama_alternatif' => $nama_alternatif[$i],
+                'penilaian' => $nilai
+            ]);
+
+            // $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
+            // $penilaiansql = DB::connection('CoprasSql')->select('select penilaian from alternatif');
+            // // Iterate through the data
+            // $penilaian_kriteria[$i] = explode(' ', $penilaiansql[$i]);
+            // for ($j = 0; $j < count($alternatifsql); $j++){
+            //     $alternatif = $alternatifsql[$j]->nama_alternatif;
+            //     $penilaian = explode(', ', $penilaiansql[$j]->penilaian);
+            //     $penilaian[] = 0;
+            //     $penilaian = implode(', ', $penilaian);
+
+            //     DB::connection("CoprasSql")->table('alternatif')
+            //         ->where('nama_alternatif', '=', $alternatif)
+            //         ->update(['penilaian' => $penilaian
+            //     ]);
+            // }
+        } 
+        return redirect('/copras');
     }
 
     public function sunting_penilaian(){
@@ -285,14 +333,11 @@ class CoprasController extends Controller
         }
 
         $kriteriasql = DB::connection('CoprasSql')->select('select nama_kriteria from kriteria');
-        foreach ($kriteriasql as $row) {
-            // Explode the penilaian string into an array
-            $values = explode(',', $row->nama_kriteria);
-            // Append the array to the result array
-            foreach ($values as $key => $criterion) {
-                $kriteria[] = $criterion;
-            }  
-        }
+        // dd($kriteriasql);
+        foreach ($kriteriasql as $row) { 
+            $kriteria[] = $row->nama_kriteria;
+        } 
+        // dd($kriteria);
         return view('layoutscopras.sunting_penilaian', compact('penilaian', 'kriteria'));
     }
 
@@ -319,9 +364,6 @@ class CoprasController extends Controller
         return redirect('/copras');
     }
 
-    public function tambah_alt(){
-        return view('layoutscopras.alt_tambah');
-    }
 
     public function update_kat(){
 
