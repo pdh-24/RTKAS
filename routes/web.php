@@ -32,7 +32,10 @@ Route::get('/copras', [CoprasController::class, 'index']);
 Route::get('/spk', [CoprasController::class, 'spk']);
 Route::get('/copras/tambah_kriteria', [CoprasController::class, 'tambah_krit']);
 Route::POST('/copras/tambah_kriteria_simpan', [CoprasController::class, 'tambah_krit_simpan']);
+Route::get('/copras/tambah_alternatif', [CoprasController::class, 'tambah_alt']);
 Route::get('/copras/coba', [CoprasController::class, 'coba']);
+Route::get('/copras/sunting_penilaian', [CoprasController::class, 'sunting_penilaian']);
+Route::POST('/copras/sunting_penilaian/simpan', [CoprasController::class, 'simpan_sunting_penilaian']);
 
 //informasi admin
 Route::get('/pengumuman', [HomeController::class, 'pengumuman'])->name('pengumuman');
