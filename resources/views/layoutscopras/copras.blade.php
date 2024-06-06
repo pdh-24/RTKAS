@@ -5,6 +5,8 @@
     <!-- Source of table: https://bbbootstrap.com/snippets/team-points-table-61285186# -->
     <div class="content-wrapper">
         <div class="row">
+        <div class="card">
+                    <div class="card-body">
         <div class="col-lg-12">
                 <div class="d-sm-flex justify-content-between align-items-center mb-2">
                     <div>
@@ -29,9 +31,9 @@
                             <td>C{{ $x+1 }}</td>
                             <td>{{ $kriteria[$x] }}</td>
                             <td style="width: 20%;">
-                                <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                <!-- <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
                                     <i class="menu-icon mdi material-symbols-outlined">edit_square</i>
-                                </a> 
+                                </a>  -->
                                 <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
                                     <i class="menu-icon mdi material-symbols-outlined">delete</i>
                                 </a>
@@ -41,9 +43,9 @@
                     </tbody>
                 </table>
                 <br><br>
-            </div>
         </div>
-        <div class="row">
+        <!-- </div> -->
+        <!-- <div class="row"> -->
             <div class="col-lg-12">
                 <!-- <h4>Alternatif</h4> -->
                 <div class="d-sm-flex justify-content-between align-items-center mb-2">
@@ -69,9 +71,9 @@
                             <td>A{{ $x+1 }}</td>
                             <td>{{ $alternatif[$x] }}</td>
                             <td style="width: 20%;">
-                                <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                <!-- <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
                                     <i class="menu-icon mdi material-symbols-outlined">edit_square</i>
-                                </a> 
+                                </a>  -->
                                 <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
                                     <i class="menu-icon mdi material-symbols-outlined">delete</i>
                                 </a>
@@ -82,13 +84,20 @@
                 </table>
                 <br><br>
             </div>
-        </div>
-        <div class="row">
+        <!-- </div> -->
+        <!-- <div class="row"> -->
             <!-- <section class="content-info"> -->
                 <div class="container paddings-mini">
                     <div class="col-lg-12">
-
-                    <h4>Matriks Penilaian</h4>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                        <div>
+                            <h4 class="card-title card-title-dash">Matriks Penilaian</h4>
+                        </div>
+                        <div>
+                            <a href="copras/sunting_penilaian" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="menu-icon mdi material-symbols-outlined">edit_square</i> Sunting</a>
+                        </div>
+                    </div>
+                    <!-- <h4>Matriks Penilaian</h4> -->
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -257,6 +266,8 @@
                     </div>
                 </div>
             <!-- </section> -->
+        </div>
+    </div>
         </div>
     </div>
 @endsection

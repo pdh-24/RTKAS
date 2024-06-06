@@ -19,6 +19,7 @@ class CoprasController extends Controller
          */
 
         $kriteriasql = DB::connection('CoprasSql')->select('select nama_kriteria from kriteria');
+        // dd($kriteriasql);
         foreach ($kriteriasql as $row) {
             // Explode the penilaian string into an array
             $values = explode(',', $row->nama_kriteria);
@@ -68,8 +69,9 @@ class CoprasController extends Controller
                 $values[$key] = (float)$value;
             }
             // Append the array to the result array
-            $penilaian[] = $values;
+            $penilaian[] = $values;    
         }
+        // dd($penilaian);
         
         $normalisasi    = array_fill(0, count($alternatif), array_fill(0, count($kriteria), 0));
         $normalBobot    = array_fill(0, count($alternatif), array_fill(0, count($kriteria), 0));
@@ -253,9 +255,57 @@ class CoprasController extends Controller
         } 
         return redirect('/copras');
     }
+    public function simpan_sunting_penilaian(Request $request){
+        $penilaian = $request->input('penilaian');
+        // dd($penilaian);
+        $nama_alt = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
+
+        for ($i=0; $i < count($penilaian); $i++) { 
+            foreach ($penilaian[$i] as $key => $value) {
+                $penilaian[$i][$key] = str_replace(',', '.', $value);
+            }
+            $penilaian[$i] = implode(", ", $penilaian[$i]);
+        }
+        // dd($penilaian);
+
+        for ($i = 0; $i < count($nama_alt); $i++) {
+            // if (!empty($nama_alt[$i]) && !empty($penilaian_kriteria[$i])) {
+                DB::connection('CoprasSql')->table('alternatif')
+                    ->where('nama_alternatif', '=', $nama_alt[$i]->nama_alternatif)
+                    ->update(['penilaian' => $penilaian[$i]]);
+            // }
+        }
+        return redirect('/copras');
+    }
+
+    public function sunting_penilaian(){
+        $penilaiansql = DB::connection('CoprasSql')->select('select penilaian from alternatif');
+
+        // Iterate through the data
+        foreach ($penilaiansql as $row) {
+            // Explode the penilaian string into an array
+            $values = explode(',', $row->penilaian);
+            foreach ($values as $key => $value) {
+                $values[$key] = (float)$value;
+            }
+            // Append the array to the result array
+            $penilaian[] = $values;
+        }
+
+        $kriteriasql = DB::connection('CoprasSql')->select('select nama_kriteria from kriteria');
+        foreach ($kriteriasql as $row) {
+            // Explode the penilaian string into an array
+            $values = explode(',', $row->nama_kriteria);
+            // Append the array to the result array
+            foreach ($values as $key => $criterion) {
+                $kriteria[] = $criterion;
+            }  
+        }
+        return view('layoutscopras.sunting_penilaian', compact('penilaian', 'kriteria'));
+    }
 
     public function tambah_alt(){
-
+        return view('layoutscopras.alt_tambah');
     }
 
     public function update_kat(){
