@@ -338,7 +338,14 @@ class CoprasController extends Controller
             $kriteria[] = $row->nama_kriteria;
         } 
         // dd($kriteria);
-        return view('layoutscopras.sunting_penilaian', compact('penilaian', 'kriteria'));
+        
+        $alternatifsql = DB::connection('CoprasSql')->select('select nama_alternatif from alternatif');
+        // dd($alternatifsql);
+        foreach ($alternatifsql as $row) { 
+            $alternatif[] = $row->nama_alternatif;
+        } 
+
+        return view('layoutscopras.sunting_penilaian', compact('penilaian', 'kriteria', 'alternatif'));
     }
 
     public function simpan_sunting_penilaian(Request $request){
@@ -364,13 +371,53 @@ class CoprasController extends Controller
         return redirect('/copras');
     }
 
-
-    public function update_kat(){
+    public function update_krit(){
 
     }
 
     public function update_alt(){
 
+    }
+
+    public function hapus_krit(Request $request){
+        $nama_kriteria = $request->input('kriteria');
+        $id = $request->input('id');
+        // dd($nama_kriteria);
+
+        $penilaiansql = DB::connection('CoprasSql')->select('select nama_alternatif, penilaian from alternatif');
+        // dd($penilaiansql);
+        
+        foreach ($penilaiansql as $key => $value) {
+            $alternatif = $penilaiansql[$key]->nama_alternatif;
+            $penilaian = explode(', ', $penilaiansql[$key]->penilaian);
+            // dd($penilaian);
+            // dd($id);
+            array_splice($penilaian, $id, 1);
+            $penilaian = implode(', ', $penilaian);
+            // dd($penilaian);
+            DB::connection("CoprasSql")->table('alternatif')
+                ->where('nama_alternatif', '=', $alternatif)
+                ->update([
+                    'penilaian' => $penilaian
+            ]);
+        }
+
+        DB::connection('CoprasSql')->table('kriteria')
+            ->where('nama_kriteria', $nama_kriteria)
+        ->delete();
+  
+        return redirect('/copras');
+    }
+
+    public function hapus_alt(Request $request){
+        $nama_alternatif = $request->input('alternatif');
+        $id = $request->input('id');
+
+        DB::connection('CoprasSql')->table('alternatif')
+            ->where('nama_alternatif', $nama_alternatif)
+        ->delete();
+
+        return redirect('/copras');
     }
 
     public function coba(){
