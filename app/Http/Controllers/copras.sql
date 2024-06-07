@@ -37,16 +37,16 @@ CREATE TABLE `alternatif` (
 --
 
 INSERT INTO `alternatif` (`nama_alternatif`, `penilaian`) VALUES
-('Dana gotong royong bulanan', '0.3, 0.3, 0.3, 1, 1'),
-('Dana Darurat untuk bantuan krisis', '0.2, 0.2, 0.2, 0.3, 0.3'),
-('Dana untuk acara HUT RI', '1, 1, 0.5, 0.2, 0.2'),
-('Dana untuk program kebersihan bulanan', '0.3, 0.4, 0.4, 0.4, 0.4'),
-('Dana untuk pengadaan peralatan untuk RT', '0.2, 0.2, 1, 0.3, 0.3'),
-('Biaya operasional rapat RT', '0.4, 0.2, 0.2, 0.3, 0.4'),
-('Biaya operasional PKK', '0.4, 1, 0.4, 0.4, 1'),
-('Dana untuk pelatihan workshop RT', '1, 0.3, 0.5, 1, 0.2'),
-('Dana untuk kegiatan social', '0.3, 0.3, 0.5, 0.2, 0.4'),
-('Dana untuk pembangunan infrastruktur RT', '0.5, 0.2, 0.3, 0.6, 1');
+('Dana gotong royong bulanan', '4, 3, 4, 4, 4'),
+('Dana Darurat untuk bantuan krisis', '4, 2, 2, 3, 3'),
+('Dana untuk acara HUT RI', '4, 3, 4, 1, 2'),
+('Dana untuk program kebersihan bulanan', '5, 2, 3, 4, 4'),
+('Dana untuk pengadaan peralatan untuk RT', '3, 2, 2, 1, 3'),
+('Biaya operasional rapat RT', '2, 2, 3, 1, 4'),
+('Biaya operasional PKK', '3, 2, 2, 1, 1'),
+('Dana untuk pelatihan workshop RT', '3, 2, 3, 4, 1'),
+('Dana untuk kegiatan social', '4, 2, 4, 2, 3'),
+('Dana untuk pembangunan infrastruktur RT', '3, 2, 2, 2, 2');
 
 -- --------------------------------------------------------
 
