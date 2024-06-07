@@ -94,6 +94,8 @@ class CoprasController extends Controller
                 for ($x = 0; $x < count($penilaian); $x++) {    // x menyatakan alternatif ke-X
                     $total += $penilaian[$x][$y];
                 }
+                // dd($penilaian);
+                // dd($total);
 
                 // Normalisasi untuk setiap entri
                 for ($x = 0; $x < count($penilaian); $x++) {    // x menyatakan alternatif ke-X
@@ -101,25 +103,27 @@ class CoprasController extends Controller
                     else                $normalisasi[$x][$y] = $penilaian[$x][$y] / $total;
                 }
             }
+            // dd($normalisasi);
         }
         
         /**
          * Menghitung normalisasi bobot dan total benefit serta cost
          */
         function hitungNormalBobot(&$normalisasi, &$normalBobot, &$benefit, &$cost, &$pembobotan, &$tipe) {
-            
+            // dd($normalisasi);
             for ($x = 0; $x < count($normalisasi); $x++) {       // Perulangan terhadap setiap alternatif
                 for ($y = 0; $y < count($normalisasi[$x]); $y++) {   // Perulangan untuk setiap kriteria dari setiap alternatif
                     
                     // Setiap entri dikali bobot dari setiap kriteria
                     $normalBobot[$x][$y] = $normalisasi[$x][$y] * $pembobotan[$y];  
-                    
+                    // dd($normalBobot);
                     if ($tipe[$y] == "b") {
                         $benefit[$x] += $normalBobot[$x][$y];           // Hitung total benefit untuk setiap alternatif
                     } else {
                         $cost[$x] += $normalBobot[$x][$y];              // Hitung total cost untuk setiap alternatif
                     }
                 }
+                // dd($normalBobot);
             }
         }
         
@@ -128,12 +132,15 @@ class CoprasController extends Controller
          */
         function hitungBotRelatif(&$cost, &$botRelatif1, &$botRelatif2) {
             $totalBotRelatif = 0;
+            // dd($cost);
             for ($x = 0; $x < count($cost); $x++) {
                 if ($cost[$x] != 0) $botRelatif1[$x] = 1 / $cost[$x];
-                else                $botrelatif1[$x] = 0;
+                else                $botRelatif1[$x] = 0;
                 
                 $totalBotRelatif += $botRelatif1[$x];
             }
+            // dd($botRelatif1);
+            
             for ($x = 0; $x < count($cost); $x++) {
                 $botRelatif2[$x] = $cost[$x] * $totalBotRelatif;
             }
@@ -145,7 +152,9 @@ class CoprasController extends Controller
         function hitungPrioritas(&$alternatif, &$cost, &$benefit, &$botRelatif2, &$nilaiPrioritas) {
             $totalCost = array_sum($cost);
             for ($x = 0; $x < count($alternatif); $x++) { // x menyatakan nilai prioritas untuk alternatif ke-X
-                $nilaiPrioritas[$x] = $benefit[$x] + $totalCost / $botRelatif2[$x];
+                if ($botRelatif2[$x] != 0) $priorityCost = $totalCost / $botRelatif2[$x];
+                else                       $priorityCost = 0;
+                $nilaiPrioritas[$x] = $benefit[$x] + $priorityCost;
             }
         }
         
