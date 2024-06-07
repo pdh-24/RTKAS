@@ -6,7 +6,7 @@
         <div class="col-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Tambah jumlah kriteria</h4>
+                    <h4 class="card-title">Tambah kriteria</h4>
                     <form action="tambah_kriteria2/simpan" method="POST" class="forms-sample">
                             
                         {{ csrf_field() }}

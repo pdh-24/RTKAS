@@ -7,7 +7,7 @@
             <div class="col-12 grid-margin">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Matriks Penilaian</h4>
+                        <h4 class="card-title">Sunting matriks penilaian</h4>
                         <form action="sunting_penilaian/simpan" method="POST" class="forms-sample">
                             
                             {{ csrf_field() }}

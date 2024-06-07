@@ -6,7 +6,7 @@
         <div class="col-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Tambah jumlah kriteria</h4>
+                    <h4 class="card-title">Tambah jumlah alternatif</h4>
                     <!-- <p class="card-description">Masukkan jumlah kriteria baru </p> -->
                     <form action="tambah_alt2/simpan" method="POST" class="forms-sample">
                             
