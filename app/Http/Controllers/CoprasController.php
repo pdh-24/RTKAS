@@ -220,7 +220,7 @@ class CoprasController extends Controller
             hitungPeringkat($nilaiPrioritas, $peringkat);
        
         return view('layoutscopras.copras', compact(
-            'penilaian', 'kriteria', 'normalisasi', 'normalBobot', 'benefit', 'cost', 'botRelatif1',
+            'penilaian', 'kriteria', 'pembobotan', 'tipe', 'normalisasi', 'normalBobot', 'benefit', 'cost', 'botRelatif1',
             'botRelatif2', 'nilaiPrioritas', 'indexPerforma', 'peringkat', 'alternatif'
         ));
     }
@@ -410,6 +410,6 @@ class CoprasController extends Controller
     }
 
     public function coba(){
-        return redirect('/copras');        
+        return view('layoutscopracoba.template');        
     }
 }
