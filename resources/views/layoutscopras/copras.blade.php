@@ -5,134 +5,135 @@
     <!-- Source of database: https://bbbootstrap.com/snippets/team-points-table-61285186# -->
     <div class="content-wrapper">
         <div class="row">
-        <div class="card">
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
                     <div class="card-body">
-        <div class="col-lg-12">
-                <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                    <div>
-                        <h4 class="card-title card-title-dash">Kriteria</h4>
-                    </div>
-                    <div>
-                        <a href="copras/tambah_kriteria" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
-                        <!-- <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button> -->
+                        <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <h4 class="card-title card-title-dash">Kriteria</h4>
+                            </div>
+                            <div>
+                                <a href="copras/tambah_kriteria" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
+                                <!-- <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button> -->
+                            </div>
+                        </div>
+                        <table class="table-striped table-responsive table-hover">
+                            <thead>
+                                <tr>
+                                    <th  style="width:10%"></th>
+                                    <th>Kriteria</th>
+                                    <th>Tipe</th>
+                                    <th  style="width:5%">Bobot</th>
+                                    <th>Tindakan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for ($x = 0; $x < count($kriteria); $x++)
+                                <tr>
+                                    <td><b>C{{ $x+1 }}</b></td>
+                                    <td>{{ $kriteria[$x] }}</td>
+                                    <td>{{ number_format($pembobotan[$x], 1, ',') }}</td>
+                                    <td>{{ $tipe[$x] }}</td>
+                                    <td style="width: 20%;">
+                                        <form method="POST" action="copras/hapus_kriteria" class="form-inline">
+                                            {{ csrf_field() }}
+                                            <input type="text" name="id" class="form-control form-control-sm d-none" value="{{ $x }}">
+                                            <input type="text" name="kriteria" class="form-control form-control-sm d-none" value="{{ $kriteria[$x] }}">
+                                            <button type="submit" class="btn btn-primary p-2">
+                                                <i class="menu-icon mdi material-symbols-outlined">delete</i>
+                                            </button>
+                                        </form>
+
+                                        <!-- <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                            <i class="menu-icon mdi material-symbols-outlined">edit_square</i>
+                                        </a>  -->
+                                    </td>
+                                </tr>
+                                @endfor
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <table class="table-striped table-responsive table-hover">
-                    <thead>
-                        <tr>
-                            <th  style="width:10%"></th>
-                            <th>Kriteria</th>
-                            <th>Tipe</th>
-                            <th  style="width:5%">Bobot</th>
-                            <th>Tindakan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for ($x = 0; $x < count($kriteria); $x++)
-                        <tr>
-                            <td><b>C{{ $x+1 }}</b></td>
-                            <td>{{ $kriteria[$x] }}</td>
-                            <td>{{ $pembobotan[$x] }}</td>
-                            <td>{{ $tipe[$x] }}</td>
-                            <td style="width: 20%;">
-                                <form method="POST" action="copras/hapus_kriteria" class="form-inline">
-                                    {{ csrf_field() }}
-                                    <input type="text" name="id" class="form-control form-control-sm d-none" value="{{ $x }}">
-                                    <input type="text" name="kriteria" class="form-control form-control-sm d-none" value="{{ $kriteria[$x] }}">
-                                    <button type="submit" class="btn btn-primary p-2">
-                                        <i class="menu-icon mdi material-symbols-outlined">delete</i>
-                                    </button>
-                                    <!-- <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
-                                        <i class="menu-icon mdi material-symbols-outlined">delete</i>
-                                    </a> -->
-                                </form>
+            </div>
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
+                    <div class="card-body">
+                        <!-- <h4>Alternatif</h4> -->
+                        <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <h4 class="card-title card-title-dash">Alternatif</h4>
+                            </div>
+                            <div>
+                                <a href="copras/tambah_alt" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
+                                <!-- <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button> -->
+                            </div>
+                        </div>
+                        <table class="table-striped table-responsive table-hover">
+                            <thead>
+                                <tr>
+                                    <th style="width:10%"></th>
+                                    <th>Alternatif</th>
+                                    <th>Tindakan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for ($x = 0; $x < count($botRelatif1); $x++)
+                                <tr>
+                                    <td><b>A{{ $x+1 }}</b></td>
+                                    <td>{{ $alternatif[$x] }}</td>
+                                    <td style="width: 20%;">
+                                        
+                                        <!-- <form method="POST" action="copras/hapus_alternatif" class="form-inline">
+                                            {{ csrf_field() }}
+                                            <input type="text" name="id" class="form-control form-control-sm d-none" value="{{ $x }}">
+                                            <input type="text" name="alternatif" class="form-control form-control-sm d-none" value="{{ $alternatif[$x] }}">
+                                            <button type="submit" class="btn btn-primary p-2">
+                                                <i class="menu-icon mdi material-symbols-outlined">edit_note</i> Ganti nama
+                                            </button>
+                                            <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                                <i class="menu-icon mdi material-symbols-outlined">delete</i>
+                                            </a>
+                                        </form> -->
+                                    
+                                        <form method="POST" action="copras/hapus_alternatif" class="form-inline">
+                                            {{ csrf_field() }}
+                                            <input type="text" name="id" class="form-control form-control-sm d-none" value="{{ $x }}">
+                                            <input type="text" name="alternatif" class="form-control form-control-sm d-none" value="{{ $alternatif[$x] }}">
+                                            <button type="submit" class="btn btn-primary p-2">
+                                                <i class="menu-icon mdi material-symbols-outlined">delete</i>
+                                            </button>
+                                        </form>
 
-                                <!-- <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
-                                    <i class="menu-icon mdi material-symbols-outlined">edit_square</i>
-                                </a>  -->
-                            </td>
-                        </tr>
-                        @endfor
-                    </tbody>
-                </table>
-                <br><br>
-        </div>
-        <!-- </div> -->
-        <!-- <div class="row"> -->
-            <div class="col-lg-12">
-                <!-- <h4>Alternatif</h4> -->
-                <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                    <div>
-                        <h4 class="card-title card-title-dash">Alternatif</h4>
-                    </div>
-                    <div>
-                        <a href="copras/tambah_alt" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Tambah</a>
-                        <!-- <button style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i> Add new member</button> -->
+                                        <!-- <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                            <i class="menu-icon mdi material-symbols-outlined">edit_square</i>
+                                        </a>  -->
+                                        <!-- <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
+                                            <i class="menu-icon mdi material-symbols-outlined">delete</i>
+                                        </a> -->
+                                    </td>
+                                </tr>
+                                @endfor
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <table class="table-striped table-responsive table-hover">
-                    <thead>
-                        <tr>
-                            <th style="width:10%"></th>
-                            <th>Alternatif</th>
-                            <th>Tindakan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @for ($x = 0; $x < count($botRelatif1); $x++)
-                        <tr>
-                            <td><b>A{{ $x+1 }}</b></td>
-                            <td>{{ $alternatif[$x] }}</td>
-                            <td style="width: 20%;">
-                                
-                                <!-- <form method="POST" action="copras/hapus_alternatif" class="form-inline">
-                                    {{ csrf_field() }}
-                                    <input type="text" name="id" class="form-control form-control-sm d-none" value="{{ $x }}">
-                                    <input type="text" name="alternatif" class="form-control form-control-sm d-none" value="{{ $alternatif[$x] }}">
-                                    <button type="submit" class="btn btn-primary p-2">
-                                        <i class="menu-icon mdi material-symbols-outlined">edit_note</i> Ganti nama
-                                    </button>
-                                    <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
-                                        <i class="menu-icon mdi material-symbols-outlined">delete</i>
-                                    </a>
-                                </form> -->
-                            
-                                <form method="POST" action="copras/hapus_alternatif" class="form-inline">
-                                    {{ csrf_field() }}
-                                    <input type="text" name="id" class="form-control form-control-sm d-none" value="{{ $x }}">
-                                    <input type="text" name="alternatif" class="form-control form-control-sm d-none" value="{{ $alternatif[$x] }}">
-                                    <button type="submit" class="btn btn-primary p-2">
-                                        <i class="menu-icon mdi material-symbols-outlined">delete</i>
-                                    </button>
-                                </form>
-
-                                <!-- <a href="copras/tambah_kategori" style="padding:10px !important;" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
-                                    <i class="menu-icon mdi material-symbols-outlined">edit_square</i>
-                                </a>  -->
-                                <!-- <a href="copras/tambah_kategori" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button">
-                                    <i class="menu-icon mdi material-symbols-outlined">delete</i>
-                                </a> -->
-                            </td>
-                        </tr>
-                        @endfor
-                    </tbody>
-                </table>
-                <br><br>
             </div>
         <!-- </div> -->
         <!-- <div class="row"> -->
             <!-- <section class="content-info"> -->
-                <div class="container paddings-mini">
-                    <div class="col-lg-12">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-2">
-                        <div>
-                            <h4 class="card-title card-title-dash">Matriks Penilaian</h4>
+        <!-- <div class="container paddings-mini"> -->
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
+                    <div class="card-body">
+                        <div class="d-sm-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <h4 class="card-title card-title-dash">Matriks Penilaian</h4>
+                            </div>
+                            <div>
+                                <a href="copras/sunting_penilaian" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="menu-icon mdi material-symbols-outlined">edit_square</i> Sunting</a>
+                            </div>
                         </div>
-                        <div>
-                            <a href="copras/sunting_penilaian" style="padding:10px !important" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="menu-icon mdi material-symbols-outlined">edit_square</i> Sunting</a>
-                        </div>
-                    </div>
-                    <!-- <h4>Matriks Penilaian</h4> -->
+                        <!-- <h4>Matriks Penilaian</h4> -->
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -148,13 +149,18 @@
                                         <td><b>A{{ $x+1 }}</b></td>
                                         @for ($y = 0; $y < count($penilaian[$x]); $y++)
                                             <td>{{ number_format($penilaian[$x][$y], 1, ',') }}</td>
-                                        @endfor
+                                            @endfor
                                     </tr>
                                 @endfor
                             </tbody>
                         </table>
-
-                    <br><br> 
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
+                    <div class="card-body">
+                        <!-- <br><br>  -->
                         <h4>Matriks Normalisasi</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
@@ -176,9 +182,13 @@
                                 @endfor
                             </tbody>
                         </table>
-
-                        <br><br>
-                            <h4>Maktriks Normalisasi Terbobot</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
+                    <div class="card-body">
+                        <h4>Maktriks Normalisasi Terbobot</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -199,9 +209,13 @@
                                 @endfor
                             </tbody>
                         </table>
-
-                        <br><br>
-                            <h4>Total Benefit and Cost</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
+                    <div class="card-body">
+                        <h4>Total Benefit and Cost</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -222,9 +236,13 @@
                                 @endforeach
                             </tbody>
                         </table>
-
-                        <br><br>
-                            <h4>Bobot Relatif</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
+                    <div class="card-body">
+                        <h4>Bobot Relatif</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -245,9 +263,13 @@
                                 @endforeach
                             </tbody>
                         </table>
-
-                        <br><br>
-                            <h4>Nilai Prioritas</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
+                    <div class="card-body">
+                        <h4>Nilai Prioritas</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -266,9 +288,13 @@
                                 @endforeach
                             </tbody>
                         </table>
-
-                        <br><br>
-                            <h4>Indeks Performa</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
+                    <div class="card-body">
+                        <h4>Indeks Performa</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -287,9 +313,13 @@
                                 @endforeach
                             </tbody>
                         </table>
-
-                        <br><br>
-                            <h4>Pemeringkatan</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 grid-margin">
+                <div class="card border-left-blue">
+                    <div class="card-body">
+                        <h4>Pemeringkatan</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -308,9 +338,10 @@
                         </table>
                     </div>
                 </div>
+            </div>
             <!-- </section> -->
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->
         </div>
     </div>
 @endsection

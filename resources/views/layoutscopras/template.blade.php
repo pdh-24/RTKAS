@@ -61,6 +61,11 @@
             margin-top: 1px;
             border: 1px solid #dedede;
         }
+        .border-left-blue {
+            border-left: 3px solid #6495ED;
+            border-top-left-radius: 0.5%;
+            border-bottom-left-radius: 0.5%;
+        }
        
     </style>
     <!-- End of SPK -->
