@@ -40,14 +40,33 @@
         table {
             width: 100%;
             background: #fff;
+            /* border-color: black !important; */
             border-collapse: collapse;
+            border-radius: 0.25% !important;
         }
 
         table thead tr th,
-        table tbody tr td {
+        table tbody tr td,
+        tbody th {
             padding: 10px;
             border: 1px solid #dedede;
             text-align: center;
+        }
+        thead th {
+            border-bottom: 1px solid #6495ED !important;
+        }
+        table tr:not(tfoot tr) th:first-child {
+            border-right: 1px solid #6495ED !important;
+        }
+
+        tfoot {
+            padding: 10px;
+            border: 1px solid #dedede;
+            text-align: center;
+        }
+        tfoot th, tfoot td {
+            padding: 10px;
+            border: 1px solid #dedede;
         }
 
         table tbody tr:nth-of-type(odd) {
@@ -58,13 +77,16 @@
             max-width: 32px;
             float: left;
             margin-right: 11px;
-            margin-top: 1px;
+            margin-top: 1px; 
             border: 1px solid #dedede;
         }
         .border-left-blue {
             border-left: 3px solid #6495ED;
             border-top-left-radius: 0.5%;
             border-bottom-left-radius: 0.5%;
+        }
+        .empty-cell {
+            background-color: #D3D3D3;
         }
        
     </style>

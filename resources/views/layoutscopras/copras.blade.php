@@ -20,7 +20,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th  style="width:10%"></th>
+                                    <th style="width:10%"></th>
                                     <th>Kriteria</th>
                                     <th>Tipe</th>
                                     <th  style="width:5%">Bobot</th>
@@ -30,7 +30,7 @@
                             <tbody>
                                 @for ($x = 0; $x < count($kriteria); $x++)
                                 <tr>
-                                    <td><b>C{{ $x+1 }}</b></td>
+                                    <th><b>C{{ $x+1 }}</b></th>
                                     <td>{{ $kriteria[$x] }}</td>
                                     <td>{{ number_format($pembobotan[$x], 1, ',') }}</td>
                                     <td>{{ $tipe[$x] }}</td>
@@ -79,7 +79,7 @@
                             <tbody>
                                 @for ($x = 0; $x < count($botRelatif1); $x++)
                                 <tr>
-                                    <td><b>A{{ $x+1 }}</b></td>
+                                    <th><b>A{{ $x+1 }}</b></th>
                                     <td>{{ $alternatif[$x] }}</td>
                                     <td style="width: 20%;">
                                         
@@ -146,10 +146,10 @@
                             <tbody>
                                 @for ($x = 0; $x < count($penilaian); $x++)
                                     <tr>
-                                        <td><b>A{{ $x+1 }}</b></td>
+                                        <th><b>A{{ $x+1 }}</b></th>
                                         @for ($y = 0; $y < count($penilaian[$x]); $y++)
                                             <td>{{ number_format($penilaian[$x][$y], 1, ',') }}</td>
-                                            @endfor
+                                        @endfor
                                     </tr>
                                 @endfor
                             </tbody>
@@ -161,7 +161,7 @@
                 <div class="card border-left-blue">
                     <div class="card-body">
                         <!-- <br><br>  -->
-                        <h4>Matriks Normalisasi</h4>
+                        <h4 class="card-title card-title-dash">Matriks Normalisasi</h4>
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
@@ -174,7 +174,7 @@
                             <tbody>
                                 @for ($x = 0; $x < count($normalisasi); $x++)
                                     <tr>
-                                        <td><b>A{{ $x+1 }}</b></td>
+                                        <th><b>A{{ $x+1 }}</b></th>
                                         @for ($y = 0; $y < count($normalisasi[$x]); $y++)
                                             <td>{{ number_format($normalisasi[$x][$y], 3, ',') }}</td>
                                         @endfor
@@ -192,7 +192,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th style="width:10%"></th>
+                                    <th style="width:10%" class="empty-cell"></th>
                                     @for ($x = 0; $x < count($kriteria); $x++)
                                         <th>C{{ $x+1 }}</th>
                                     @endfor
@@ -201,7 +201,7 @@
                             <tbody>
                                 @for ($x = 0; $x < count($normalBobot); $x++)
                                     <tr>
-                                        <td><b>A{{ $x+1 }}</b></td>
+                                        <th><b>A{{ $x+1 }}</b></th>
                                         @for ($y = 0; $y < count($normalBobot[$x]); $y++)
                                             <td>{{ number_format($normalBobot[$x][$y], 3, ',') }}</td>
                                         @endfor
@@ -219,7 +219,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th class="empty-cell"></th>
                                     <th style="text-align: center;">Alternatif</th>
                                     <th>Benefit</th>
                                     <th>Cost</th>
@@ -228,13 +228,19 @@
                             <tbody>
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
-                                        <td><b>A{{ $index+1 }}</b></td>
+                                        <th><b>A{{ $index+1 }}</b></th>
                                         <td>{{ $alt }}</td>
                                         <td>{{ number_format($benefit[$index], 3, ',') }}</td>
                                         <td>{{ number_format($cost[$index], 3, ',') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="row" colspan="3">Total</th>
+                                    <td class="fw-bold">{{ number_format(array_sum($cost), 2, ',') }}</td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -246,7 +252,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th class="empty-cell"></th>
                                     <th>Alternatif</th>
                                     <th style="text-align: center;">1/S<sub>-i</sub></th>
                                     <th style="text-align: center;">S<sub>-</sub>&times;<small>&sum;</small>(1/S<sub>-i</sub>)</th>
@@ -255,13 +261,20 @@
                             <tbody>
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
-                                        <td><b>A{{ $index+1 }}</b></td>
+                                        <th><b>A{{ $index+1 }}</b></th>
                                         <td>{{ $alt }}</td>
                                         <td style="text-align: center;">{{ number_format($botRelatif1[$index], 2, ',') }}</td>
                                         <td style="text-align: center;">{{ number_format($botRelatif2[$index], 2, ',') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="row" colspan="2">Total (<small>&sum;</small>1/S<sub>-i</sub>)</th>
+                                    <td class="fw-bold">{{ number_format(array_sum($botRelatif1), 2, ',') }}</td>
+                                    <td class="empty-cell"></td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -273,7 +286,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th class="empty-cell"></th>
                                     <th>Alternatif</th>
                                     <th>Priority</th>
                                 </tr>
@@ -281,12 +294,18 @@
                             <tbody>
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
-                                        <td><b>A{{ $index+1 }}</b></td>
+                                        <th><b>A{{ $index+1 }}</b></th>
                                         <td>{{ $alt }}</td>
                                         <td>{{ number_format($nilaiPrioritas[$index], 2, ',') }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th scope="row" colspan="2">Q<sub>max</sub></th>
+                                    <td class="fw-bold">{{ number_format(max($nilaiPrioritas), 2, ',') }}</td>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -298,7 +317,7 @@
                         <table class="table-striped table-responsive table-hover">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th class="empty-cell"></th>
                                     <th>Alternatif</th>
                                     <th>Index</th>
                                 </tr>
@@ -306,7 +325,7 @@
                             <tbody>
                                 @foreach ($alternatif as $index => $alt)
                                     <tr>
-                                        <td><b>A{{ $index+1 }}</b></td>
+                                        <th><b>A{{ $index+1 }}</b></th>
                                         <td>{{ $alt }}</td>
                                         <td>{{ number_format($indexPerforma[$index], 2, ',') }}%</td>
                                     </tr>
@@ -330,7 +349,7 @@
                             <tbody>
                                 @foreach ($peringkat as $rank => $index)
                                     <tr>
-                                        <td>{{ $rank + 1 }}</td>
+                                        <th>{{ $rank + 1 }}</th>
                                         <td>{{ $alternatif[$index] }} – <b>A{{ $index+1 }}</b></td>
                                     </tr>
                                 @endforeach
@@ -341,7 +360,7 @@
             </div>
             <!-- </section> -->
         <!-- </div>
-    </div> -->
+        </div> -->
         </div>
     </div>
 @endsection

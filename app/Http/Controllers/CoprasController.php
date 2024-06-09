@@ -134,7 +134,7 @@ class CoprasController extends Controller
             $totalBotRelatif = 0;
             // dd($cost);
             for ($x = 0; $x < count($cost); $x++) {
-                if ($cost[$x] != 0) $botRelatif1[$x] = 1 / $cost[$x];
+                if ($cost[$x] != 0) $botRelatif1[$x] = 1.0 / $cost[$x];
                 else                $botRelatif1[$x] = 0;
                 
                 $totalBotRelatif += $botRelatif1[$x];
